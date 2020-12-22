@@ -4,13 +4,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">Hugo 主题 MemE</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2020-12-22T19:25:47&#43;08:00</updated>
-    <id>http://localhost:8080/</id>
-    <link rel="alternate" type="text/html" href="http://localhost:8080/" />
-    <link rel="self" type="application/atom&#43;xml" href="http://localhost:8080/atom.xml" />
+    <updated>2020-12-22T19:42:45&#43;08:00</updated>
+    <id>https://jianse.gitee.io/note/</id>
+    <link rel="alternate" type="text/html" href="https://jianse.gitee.io/note/" />
+    <link rel="self" type="application/atom&#43;xml" href="https://jianse.gitee.io/note/atom.xml" />
     <author>
             <name>jianse</name>
-            <uri>http://localhost:8080/</uri>
+            <uri>https://jianse.gitee.io/</uri>
             
                 <email>jianse@gmail.com</email>
             </author>
@@ -18,8 +18,8 @@
     <generator uri="https://gohugo.io/" version="0.79.1">Hugo</generator>
         <entry>
             <title type="text">[Java笔记]第十五章 反射机制</title>
-            <link rel="alternate" type="text/html" href="http://localhost:8080/posts/java/chapter_15/" />
-            <id>http://localhost:8080/posts/java/chapter_15/</id>
+            <link rel="alternate" type="text/html" href="https://jianse.gitee.io/note/posts/java/chapter_15/" />
+            <id>https://jianse.gitee.io/note/posts/java/chapter_15/</id>
             <updated>2020-12-22T17:47:01&#43;08:00</updated>
             <published>2019-10-18T12:19:59&#43;08:00</published>
             <author>
@@ -43,7 +43,7 @@
                             
                             
                             
-                                <category scheme="http://localhost:8080/categories/javase/" term="javase" label="javase" />
+                                <category scheme="https://jianse.gitee.io/note/categories/javase/" term="javase" label="javase" />
                             
                         
                     
@@ -55,8 +55,8 @@
     
         <entry>
             <title type="text">[Java笔记]第十四章 网络编程</title>
-            <link rel="alternate" type="text/html" href="http://localhost:8080/posts/java/chapter_14/" />
-            <id>http://localhost:8080/posts/java/chapter_14/</id>
+            <link rel="alternate" type="text/html" href="https://jianse.gitee.io/note/posts/java/chapter_14/" />
+            <id>https://jianse.gitee.io/note/posts/java/chapter_14/</id>
             <updated>2020-12-22T17:46:58&#43;08:00</updated>
             <published>2019-09-10T12:19:59&#43;08:00</published>
             <author>
@@ -80,7 +80,7 @@
                             
                             
                             
-                                <category scheme="http://localhost:8080/categories/javase/" term="javase" label="javase" />
+                                <category scheme="https://jianse.gitee.io/note/categories/javase/" term="javase" label="javase" />
                             
                         
                     
@@ -92,8 +92,8 @@
     
         <entry>
             <title type="text">[Java笔记]第十三章 并发</title>
-            <link rel="alternate" type="text/html" href="http://localhost:8080/posts/java/chapter_13/" />
-            <id>http://localhost:8080/posts/java/chapter_13/</id>
+            <link rel="alternate" type="text/html" href="https://jianse.gitee.io/note/posts/java/chapter_13/" />
+            <id>https://jianse.gitee.io/note/posts/java/chapter_13/</id>
             <updated>2020-12-22T17:46:53&#43;08:00</updated>
             <published>2019-08-25T12:19:59&#43;08:00</published>
             <author>
@@ -118,7 +118,7 @@
                             
                             
                             
-                                <category scheme="http://localhost:8080/categories/javase/" term="javase" label="javase" />
+                                <category scheme="https://jianse.gitee.io/note/categories/javase/" term="javase" label="javase" />
                             
                         
                     
@@ -130,8 +130,8 @@
     
         <entry>
             <title type="text">[Java笔记]第十二章 流与文件</title>
-            <link rel="alternate" type="text/html" href="http://localhost:8080/posts/java/chapter_12/" />
-            <id>http://localhost:8080/posts/java/chapter_12/</id>
+            <link rel="alternate" type="text/html" href="https://jianse.gitee.io/note/posts/java/chapter_12/" />
+            <id>https://jianse.gitee.io/note/posts/java/chapter_12/</id>
             <updated>2020-12-22T17:39:36&#43;08:00</updated>
             <published>2019-08-20T12:19:59&#43;08:00</published>
             <author>
@@ -310,7 +310,7 @@
 &lt;p&gt;File是java.io包下面的一个类，代表与平台无关的文件或者目录。JAVA中，无论文件还是目录，都可以看作File类的一个对象。File类能对文件或目录新建，删除，获取属性等操作，但是不能直接操作文件内容（文件内容需要用数据流访问）。&lt;/p&gt;
 &lt;p&gt;JVM默认会将workspace作为相对路径，即user.dir系统变量所指路径, 即如果这样初始化file对象，File file = new File(&amp;quot;.&amp;quot;); 就是获取了user.dir路径。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;java 1.7 引入了新的文件工具类&lt;a href=&#34;http://localhost:8080/posts/java/chapter_12/#jnf-package&#34;&gt;java.nio.file包&lt;/a&gt;用来代替旧的File类&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;java 1.7 引入了新的文件工具类&lt;a href=&#34;https://jianse.gitee.io/note/posts/java/chapter_12/#jnf-package&#34;&gt;java.nio.file包&lt;/a&gt;用来代替旧的File类&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;1251-file&#34;&gt;12.5.1 File&lt;/h3&gt;
 &lt;ul&gt;
@@ -400,7 +400,7 @@ File[] listFiles() -同上，只不过返回的是File类型数组
                             
                             
                             
-                                <category scheme="http://localhost:8080/categories/javase/" term="javase" label="javase" />
+                                <category scheme="https://jianse.gitee.io/note/categories/javase/" term="javase" label="javase" />
                             
                         
                     
@@ -412,8 +412,8 @@ File[] listFiles() -同上，只不过返回的是File类型数组
     
         <entry>
             <title type="text">[Java笔记]第十一章 集合框架</title>
-            <link rel="alternate" type="text/html" href="http://localhost:8080/posts/java/chapter_11/" />
-            <id>http://localhost:8080/posts/java/chapter_11/</id>
+            <link rel="alternate" type="text/html" href="https://jianse.gitee.io/note/posts/java/chapter_11/" />
+            <id>https://jianse.gitee.io/note/posts/java/chapter_11/</id>
             <updated>2020-12-22T17:19:15&#43;08:00</updated>
             <published>2019-08-15T12:19:59&#43;08:00</published>
             <author>
@@ -472,7 +472,7 @@ File[] listFiles() -同上，只不过返回的是File类型数组
 &lt;h3 id=&#34;1122-vector&#34;&gt;11.2.2 Vector&lt;/h3&gt;
 &lt;p&gt;Vector是java 1.0 版本时就引入的集合实现类, 它实现了一个可以同台增长的数组, 可以根据所存入的元素动态的伸缩.&lt;/p&gt;
 &lt;p&gt;Vector是线程安全的, 所以Vector可以在多线程场景下安全的使用, 但也因为线程安全使其效率有所限制&lt;/p&gt;
-&lt;p&gt;如果不需要线程安全的使用可伸缩的数组可以使用&lt;a href=&#34;http://localhost:8080/posts/java/chapter_11/#arraylist&#34;&gt;ArrayList&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;如果不需要线程安全的使用可伸缩的数组可以使用&lt;a href=&#34;https://jianse.gitee.io/note/posts/java/chapter_11/#arraylist&#34;&gt;ArrayList&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;1123-stack&#34;&gt;11.2.3 Stack&lt;/h3&gt;
 &lt;p&gt;Stack是一种先进后出(LIFO)的容器, 它是Vector的子类, 这意味着Stack也是线程安全的.&lt;/p&gt;
 &lt;p&gt;Stack类为自身提供独立的操作方法&lt;/p&gt;
@@ -506,7 +506,7 @@ File[] listFiles() -同上，只不过返回的是File类型数组
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;Stack也是java 1.0 时引入的 , java 1.2 时引入了&lt;a href=&#34;http://localhost:8080/posts/java/chapter_11/#deque&#34;&gt;Deque&lt;/a&gt;接口, Deque接口及其实现提供了更完整和一致的LIFO堆栈操作集，应优先使用此类。&lt;/p&gt;
+&lt;p&gt;Stack也是java 1.0 时引入的 , java 1.2 时引入了&lt;a href=&#34;https://jianse.gitee.io/note/posts/java/chapter_11/#deque&#34;&gt;Deque&lt;/a&gt;接口, Deque接口及其实现提供了更完整和一致的LIFO堆栈操作集，应优先使用此类。&lt;/p&gt;
 &lt;h3 id=&#34;1124-arraylist-idarraylist&#34;&gt;11.2.4 ArrayList :id=arraylist&lt;/h3&gt;
 &lt;p&gt;ArrayList顾名思义就是内部有数组实现的List, 它为我们封装了一系列数组操作, 让我们不必考虑增删改查时数组怎样变化, 数组如何扩展, 如何缩小, 然后向我们提供增删改查的接口.&lt;/p&gt;
 &lt;p&gt;ArrayList实现了RandomACcess接口, 这是一个标记接口(没有方法的接口), 这意味着ArrayList支持常数时间复杂度的随机访问.&lt;/p&gt;
@@ -515,7 +515,7 @@ File[] listFiles() -同上，只不过返回的是File类型数组
 &lt;h3 id=&#34;1125-linkedlist&#34;&gt;11.2.5 LinkedList&lt;/h3&gt;
 &lt;p&gt;LiskedList是List的链表实现, 链表解决了数组插入删除慢的缺点 , Java中所有链表实际上都是双向链接的, 即每个节点同时存放着一个向前的和一个向后的引用 . 所以LinkedList也同时也是Deque接口的实现类.&lt;/p&gt;
 &lt;p&gt;LinkedList插入删除效率较高, 但是不能进行常数复杂度的随机访问, 所以适用于多增删, 少随机访问的使用场景.&lt;/p&gt;
-&lt;p&gt;!&amp;gt; &lt;a href=&#34;http://localhost:8080/posts/java/chapter_11/#_1145-linkedlist&#34;&gt;LinkedList&lt;/a&gt; 同时也实现了Deque接口&lt;/p&gt;
+&lt;p&gt;!&amp;gt; &lt;a href=&#34;https://jianse.gitee.io/note/posts/java/chapter_11/#_1145-linkedlist&#34;&gt;LinkedList&lt;/a&gt; 同时也实现了Deque接口&lt;/p&gt;
 &lt;h3 id=&#34;1126-时间复杂度比较&#34;&gt;11.2.6 时间复杂度比较&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -556,12 +556,12 @@ File[] listFiles() -同上，只不过返回的是File类型数组
 &lt;li&gt;没有重复元素&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;1132-hashset&#34;&gt;11.3.2 HashSet&lt;/h3&gt;
-&lt;p&gt;HashSet 是借助&lt;a href=&#34;http://localhost:8080/posts/java/chapter_11/#_1152-hashmap&#34;&gt;HashMap&lt;/a&gt; 实现的, 将要插入的值当作HashMap的键, 值是一个固定的Object对象, 因为HashMap的key不能重复所以HashSet的元素就不能重复 .&lt;/p&gt;
+&lt;p&gt;HashSet 是借助&lt;a href=&#34;https://jianse.gitee.io/note/posts/java/chapter_11/#_1152-hashmap&#34;&gt;HashMap&lt;/a&gt; 实现的, 将要插入的值当作HashMap的键, 值是一个固定的Object对象, 因为HashMap的key不能重复所以HashSet的元素就不能重复 .&lt;/p&gt;
 &lt;h3 id=&#34;1133-linkedhashset&#34;&gt;11.3.3 LinkedHashSet&lt;/h3&gt;
-&lt;p&gt;LinkedHashSet继承自HashSet , 源码更少、更简单 , 与HashMap唯一的区别是LinkedHashSet内部使用的是&lt;a href=&#34;http://localhost:8080/posts/java/chapter_11/#_1153-linkedhashmap&#34;&gt;LinkedHashMap&lt;/a&gt;。这样做的意义或者好处就是LinkedHashSet中的元素顺序是可以保证的 , 也就是说遍历序和插入序是一致的。&lt;/p&gt;
+&lt;p&gt;LinkedHashSet继承自HashSet , 源码更少、更简单 , 与HashMap唯一的区别是LinkedHashSet内部使用的是&lt;a href=&#34;https://jianse.gitee.io/note/posts/java/chapter_11/#_1153-linkedhashmap&#34;&gt;LinkedHashMap&lt;/a&gt;。这样做的意义或者好处就是LinkedHashSet中的元素顺序是可以保证的 , 也就是说遍历序和插入序是一致的。&lt;/p&gt;
 &lt;h3 id=&#34;1134-treeset&#34;&gt;11.3.4 TreeSet&lt;/h3&gt;
 &lt;p&gt;TreeSet实现了NavigableSet接口 , 该接口定义了一些搜索目标的方法 , 并且该接口扩展了 SortedSet接口 , 所以TreeSet是一个可排序并且可以搜索的集合.&lt;/p&gt;
-&lt;p&gt;TreeSet包装了一个TreeMap其中Set中的元素是&lt;a href=&#34;http://localhost:8080/posts/java/chapter_11/#_1154-treemap&#34;&gt;TreeMap&lt;/a&gt;的键, 而值是一个常量. 所有的方法都委托给了TreeMap&lt;/p&gt;
+&lt;p&gt;TreeSet包装了一个TreeMap其中Set中的元素是&lt;a href=&#34;https://jianse.gitee.io/note/posts/java/chapter_11/#_1154-treemap&#34;&gt;TreeMap&lt;/a&gt;的键, 而值是一个常量. 所有的方法都委托给了TreeMap&lt;/p&gt;
 &lt;p&gt;因为TreeSet要实现对元素的排序所以元素必须实现Comparable接口以便对元素进行比较.&lt;/p&gt;
 &lt;h2 id=&#34;114-queue&#34;&gt;11.4 Queue&lt;/h2&gt;
 &lt;p&gt;Queue接口是Collection接口的子类, 也是集合框架的一员 . Queue接口通常(但不一定)定义了一种先进先出(LIFO)的数据结构&lt;/p&gt;
@@ -713,7 +713,7 @@ File[] listFiles() -同上，只不过返回的是File类型数组
 &lt;h3 id=&#34;1144-arraydeque&#34;&gt;11.4.4 ArrayDeque&lt;/h3&gt;
 &lt;p&gt;ArrayDeque是一个可变大小的无界双端队列, 它的底层使用数组实现. 他们不是线程安全的, 禁止使用空元素&lt;/p&gt;
 &lt;h3 id=&#34;1145-linkedlist&#34;&gt;11.4.5 LinkedList&lt;/h3&gt;
-&lt;p&gt;上面提到了List接口下的&lt;a href=&#34;http://localhost:8080/posts/java/chapter_11/#_1125-linkedlist&#34;&gt;LinkedList&lt;/a&gt; , 现在我们要重新提起它 , 它同时实现了Deque 接口 , 这意味着它同时也是一个双端队列 , 并且LinkedList允许插入 &lt;code&gt;null&lt;/code&gt; 值.&lt;/p&gt;
+&lt;p&gt;上面提到了List接口下的&lt;a href=&#34;https://jianse.gitee.io/note/posts/java/chapter_11/#_1125-linkedlist&#34;&gt;LinkedList&lt;/a&gt; , 现在我们要重新提起它 , 它同时实现了Deque 接口 , 这意味着它同时也是一个双端队列 , 并且LinkedList允许插入 &lt;code&gt;null&lt;/code&gt; 值.&lt;/p&gt;
 &lt;h2 id=&#34;115-map&#34;&gt;11.5 Map&lt;/h2&gt;
 &lt;p&gt;Map 是一种键-值对（key-value）集合，Map 集合中的每一个元素都包含一个键对象和一个值对象。其中，键对象不允许重复，而值对象可以重复，并且值对象还可以是 Map 类型的，就像数组中的元素还可以是数组一样。&lt;/p&gt;
 &lt;h3 id=&#34;1151-map特点&#34;&gt;11.5.1 Map特点&lt;/h3&gt;
@@ -922,7 +922,7 @@ File[] listFiles() -同上，只不过返回的是File类型数组
                             
                             
                             
-                                <category scheme="http://localhost:8080/categories/javase/" term="javase" label="javase" />
+                                <category scheme="https://jianse.gitee.io/note/categories/javase/" term="javase" label="javase" />
                             
                         
                     
@@ -934,8 +934,8 @@ File[] listFiles() -同上，只不过返回的是File类型数组
     
         <entry>
             <title type="text">[Java笔记]第十章 泛型程序设计</title>
-            <link rel="alternate" type="text/html" href="http://localhost:8080/posts/java/chapter_10/" />
-            <id>http://localhost:8080/posts/java/chapter_10/</id>
+            <link rel="alternate" type="text/html" href="https://jianse.gitee.io/note/posts/java/chapter_10/" />
+            <id>https://jianse.gitee.io/note/posts/java/chapter_10/</id>
             <updated>2020-12-22T17:46:47&#43;08:00</updated>
             <published>2019-08-10T12:19:59&#43;08:00</published>
             <author>
@@ -959,7 +959,7 @@ File[] listFiles() -同上，只不过返回的是File类型数组
                             
                             
                             
-                                <category scheme="http://localhost:8080/categories/javase/" term="javase" label="javase" />
+                                <category scheme="https://jianse.gitee.io/note/categories/javase/" term="javase" label="javase" />
                             
                         
                     
@@ -971,8 +971,8 @@ File[] listFiles() -同上，只不过返回的是File类型数组
     
         <entry>
             <title type="text">[Java笔记]第九章 常用类</title>
-            <link rel="alternate" type="text/html" href="http://localhost:8080/posts/java/chapter_09/" />
-            <id>http://localhost:8080/posts/java/chapter_09/</id>
+            <link rel="alternate" type="text/html" href="https://jianse.gitee.io/note/posts/java/chapter_09/" />
+            <id>https://jianse.gitee.io/note/posts/java/chapter_09/</id>
             <updated>2020-12-22T17:30:12&#43;08:00</updated>
             <published>2019-08-08T12:19:59&#43;08:00</published>
             <author>
@@ -1146,7 +1146,7 @@ false
                             
                             
                             
-                                <category scheme="http://localhost:8080/categories/javase/" term="javase" label="javase" />
+                                <category scheme="https://jianse.gitee.io/note/categories/javase/" term="javase" label="javase" />
                             
                         
                     
@@ -1156,43 +1156,43 @@ false
                             
                             
                             
-                                <category scheme="http://localhost:8080/tags/java/" term="java" label="java" />
+                                <category scheme="https://jianse.gitee.io/note/tags/java/" term="java" label="java" />
                             
                         
                             
                             
                             
-                                <category scheme="http://localhost:8080/tags/javase/" term="javase" label="javase" />
+                                <category scheme="https://jianse.gitee.io/note/tags/javase/" term="javase" label="javase" />
                             
                         
                             
                             
                             
-                                <category scheme="http://localhost:8080/tags/%E5%8C%85%E8%A3%85%E7%B1%BB/" term="包装类" label="包装类" />
+                                <category scheme="https://jianse.gitee.io/note/tags/%E5%8C%85%E8%A3%85%E7%B1%BB/" term="包装类" label="包装类" />
                             
                         
                             
                             
                             
-                                <category scheme="http://localhost:8080/tags/string/" term="String" label="String" />
+                                <category scheme="https://jianse.gitee.io/note/tags/string/" term="String" label="String" />
                             
                         
                             
                             
                             
-                                <category scheme="http://localhost:8080/tags/scanner/" term="Scanner" label="Scanner" />
+                                <category scheme="https://jianse.gitee.io/note/tags/scanner/" term="Scanner" label="Scanner" />
                             
                         
                             
                             
                             
-                                <category scheme="http://localhost:8080/tags/math/" term="Math" label="Math" />
+                                <category scheme="https://jianse.gitee.io/note/tags/math/" term="Math" label="Math" />
                             
                         
                             
                             
                             
-                                <category scheme="http://localhost:8080/tags/%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4/" term="日期时间" label="日期时间" />
+                                <category scheme="https://jianse.gitee.io/note/tags/%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4/" term="日期时间" label="日期时间" />
                             
                         
                     
@@ -1202,8 +1202,8 @@ false
     
         <entry>
             <title type="text">[Java笔记]第八章 异常、断言和日志</title>
-            <link rel="alternate" type="text/html" href="http://localhost:8080/posts/java/chapter_08/" />
-            <id>http://localhost:8080/posts/java/chapter_08/</id>
+            <link rel="alternate" type="text/html" href="https://jianse.gitee.io/note/posts/java/chapter_08/" />
+            <id>https://jianse.gitee.io/note/posts/java/chapter_08/</id>
             <updated>2020-12-22T17:46:42&#43;08:00</updated>
             <published>2019-08-05T12:19:59&#43;08:00</published>
             <author>
@@ -1227,7 +1227,7 @@ false
                             
                             
                             
-                                <category scheme="http://localhost:8080/categories/javase/" term="javase" label="javase" />
+                                <category scheme="https://jianse.gitee.io/note/categories/javase/" term="javase" label="javase" />
                             
                         
                     
@@ -1239,8 +1239,8 @@ false
     
         <entry>
             <title type="text">[Java笔记]第七章 接口</title>
-            <link rel="alternate" type="text/html" href="http://localhost:8080/posts/java/chapter_07/" />
-            <id>http://localhost:8080/posts/java/chapter_07/</id>
+            <link rel="alternate" type="text/html" href="https://jianse.gitee.io/note/posts/java/chapter_07/" />
+            <id>https://jianse.gitee.io/note/posts/java/chapter_07/</id>
             <updated>2020-12-22T17:46:38&#43;08:00</updated>
             <published>2019-07-29T12:19:59&#43;08:00</published>
             <author>
@@ -1264,7 +1264,7 @@ false
                             
                             
                             
-                                <category scheme="http://localhost:8080/categories/javase/" term="javase" label="javase" />
+                                <category scheme="https://jianse.gitee.io/note/categories/javase/" term="javase" label="javase" />
                             
                         
                     
@@ -1276,8 +1276,8 @@ false
     
         <entry>
             <title type="text">[Java笔记]第六章 继承与多态</title>
-            <link rel="alternate" type="text/html" href="http://localhost:8080/posts/java/chapter_06/" />
-            <id>http://localhost:8080/posts/java/chapter_06/</id>
+            <link rel="alternate" type="text/html" href="https://jianse.gitee.io/note/posts/java/chapter_06/" />
+            <id>https://jianse.gitee.io/note/posts/java/chapter_06/</id>
             <updated>2020-12-22T17:45:40&#43;08:00</updated>
             <published>2019-07-27T12:19:59&#43;08:00</published>
             <author>
@@ -1301,7 +1301,7 @@ false
                             
                             
                             
-                                <category scheme="http://localhost:8080/categories/javase/" term="javase" label="javase" />
+                                <category scheme="https://jianse.gitee.io/note/categories/javase/" term="javase" label="javase" />
                             
                         
                     
@@ -1313,8 +1313,8 @@ false
     
         <entry>
             <title type="text">[Java笔记]第五章 对象和类</title>
-            <link rel="alternate" type="text/html" href="http://localhost:8080/posts/java/chapter_05/" />
-            <id>http://localhost:8080/posts/java/chapter_05/</id>
+            <link rel="alternate" type="text/html" href="https://jianse.gitee.io/note/posts/java/chapter_05/" />
+            <id>https://jianse.gitee.io/note/posts/java/chapter_05/</id>
             <updated>2020-12-22T17:15:54&#43;08:00</updated>
             <published>2019-07-25T12:19:59&#43;08:00</published>
             <author>
@@ -1858,7 +1858,7 @@ Java 编译器本身可以熟练地断定句点在分隔包、 子包、类、�
                             
                             
                             
-                                <category scheme="http://localhost:8080/categories/javase/" term="javase" label="javase" />
+                                <category scheme="https://jianse.gitee.io/note/categories/javase/" term="javase" label="javase" />
                             
                         
                     
@@ -1870,8 +1870,8 @@ Java 编译器本身可以熟练地断定句点在分隔包、 子包、类、�
     
         <entry>
             <title type="text">[Java笔记]第四章 数组与数组操作</title>
-            <link rel="alternate" type="text/html" href="http://localhost:8080/posts/java/chapter_04/" />
-            <id>http://localhost:8080/posts/java/chapter_04/</id>
+            <link rel="alternate" type="text/html" href="https://jianse.gitee.io/note/posts/java/chapter_04/" />
+            <id>https://jianse.gitee.io/note/posts/java/chapter_04/</id>
             <updated>2020-12-22T17:15:46&#43;08:00</updated>
             <published>2019-07-23T12:19:59&#43;08:00</published>
             <author>
@@ -2016,7 +2016,7 @@ Java 编译器本身可以熟练地断定句点在分隔包、 子包、类、�
                             
                             
                             
-                                <category scheme="http://localhost:8080/categories/javase/" term="javase" label="javase" />
+                                <category scheme="https://jianse.gitee.io/note/categories/javase/" term="javase" label="javase" />
                             
                         
                     
@@ -2028,8 +2028,8 @@ Java 编译器本身可以熟练地断定句点在分隔包、 子包、类、�
     
         <entry>
             <title type="text">[Java笔记]第三章 流程控制</title>
-            <link rel="alternate" type="text/html" href="http://localhost:8080/posts/java/chapter_03/" />
-            <id>http://localhost:8080/posts/java/chapter_03/</id>
+            <link rel="alternate" type="text/html" href="https://jianse.gitee.io/note/posts/java/chapter_03/" />
+            <id>https://jianse.gitee.io/note/posts/java/chapter_03/</id>
             <updated>2020-12-22T17:15:30&#43;08:00</updated>
             <published>2019-07-20T12:19:59&#43;08:00</published>
             <author>
@@ -2255,7 +2255,7 @@ n!=(n-1)!*n
                             
                             
                             
-                                <category scheme="http://localhost:8080/categories/javase/" term="javase" label="javase" />
+                                <category scheme="https://jianse.gitee.io/note/categories/javase/" term="javase" label="javase" />
                             
                         
                     
@@ -2267,8 +2267,8 @@ n!=(n-1)!*n
     
         <entry>
             <title type="text">[Java笔记]第二章 变量与运算符</title>
-            <link rel="alternate" type="text/html" href="http://localhost:8080/posts/java/chapter_02/" />
-            <id>http://localhost:8080/posts/java/chapter_02/</id>
+            <link rel="alternate" type="text/html" href="https://jianse.gitee.io/note/posts/java/chapter_02/" />
+            <id>https://jianse.gitee.io/note/posts/java/chapter_02/</id>
             <updated>2020-12-22T17:15:23&#43;08:00</updated>
             <published>2019-07-19T12:19:59&#43;08:00</published>
             <author>
@@ -3063,7 +3063,7 @@ return&lt;/p&gt;
                             
                             
                             
-                                <category scheme="http://localhost:8080/categories/javase/" term="javase" label="javase" />
+                                <category scheme="https://jianse.gitee.io/note/categories/javase/" term="javase" label="javase" />
                             
                         
                     
@@ -3075,8 +3075,8 @@ return&lt;/p&gt;
     
         <entry>
             <title type="text">[Java笔记]第一章 java历史、特性与JDK的安装</title>
-            <link rel="alternate" type="text/html" href="http://localhost:8080/posts/java/chapter_01/" />
-            <id>http://localhost:8080/posts/java/chapter_01/</id>
+            <link rel="alternate" type="text/html" href="https://jianse.gitee.io/note/posts/java/chapter_01/" />
+            <id>https://jianse.gitee.io/note/posts/java/chapter_01/</id>
             <updated>2020-12-22T17:52:10&#43;08:00</updated>
             <published>2019-07-15T12:19:59&#43;08:00</published>
             <author>
@@ -3457,7 +3457,7 @@ java -cp &lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;nb&#34
 &lt;h4 id=&#34;什么是jar包&#34;&gt;什么是JAR包&lt;/h4&gt;
 &lt;p&gt;Jar(Java Archive)Java归档文件是一种软件包文件格式，通常用作归档聚合大量的Java类文件、相关的元数据和资源文件到一个文件，以便于分发。&lt;/p&gt;
 &lt;h4 id=&#34;创建一个jar包&#34;&gt;创建一个JAR包&lt;/h4&gt;
-&lt;p&gt;我们选择将&lt;a href=&#34;http://localhost:8080/posts/java/chapter_01/#%E5%8C%85%E5%90%AB%E5%8C%85%E7%BB%93%E6%9E%84%E7%9A%84java%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91%E5%92%8C%E8%BF%90%E8%A1%8C&#34;&gt;上面提到的例子&lt;/a&gt;打包成一个jar包，首先我们将项目生成到一个独立的文件夹下，以便我们打包时可以不受源文件的影响。&lt;/p&gt;
+&lt;p&gt;我们选择将&lt;a href=&#34;https://jianse.gitee.io/note/posts/java/chapter_01/#%E5%8C%85%E5%90%AB%E5%8C%85%E7%BB%93%E6%9E%84%E7%9A%84java%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91%E5%92%8C%E8%BF%90%E8%A1%8C&#34;&gt;上面提到的例子&lt;/a&gt;打包成一个jar包，首先我们将项目生成到一个独立的文件夹下，以便我们打包时可以不受源文件的影响。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 不用担心目标目录是否创建，因为javac会为你创建&lt;/span&gt;
 javac -cp &lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; ~/java_test/&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt; ~/java_test/cn/ntboy/Hello.java -d ~/java_test/target
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后JDK提供的jar命令进行打包&lt;/p&gt;
@@ -3548,7 +3548,7 @@ java -cp &lt;span class=&#34;nv&#34;&gt;$cp&lt;/span&gt; cn.ntboy.Hello
                             
                             
                             
-                                <category scheme="http://localhost:8080/categories/javase/" term="javase" label="javase" />
+                                <category scheme="https://jianse.gitee.io/note/categories/javase/" term="javase" label="javase" />
                             
                         
                     
