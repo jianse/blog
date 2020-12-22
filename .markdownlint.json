@@ -1,0 +1,11 @@
+{
+    "MD004": {
+        "style": "sublist"
+    },
+    "MD012": {
+        "maximum": 2
+    },
+    "MD013": false,
+    "MD041": false,
+    "MD025": false
+}
