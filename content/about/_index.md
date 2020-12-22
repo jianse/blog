@@ -1,7 +1,7 @@
 ---
 title: "About"
 date: 2020-12-22T11:46:28+08:00
-draft: true
+draft: false
 ---
 
 ## 关于该站
