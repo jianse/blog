@@ -1,315 +1,2077 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-    <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
-    <meta charset="UTF-8" />
+<html><head>
+<title>[Java笔记]第十一章 集合框架</title>
 
-    <meta name="generator" content="Hugo 0.79.1" /><meta name="theme-color" content="#fff" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
-    
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
-    <title>[Java笔记]第十一章 集合框架 | Hugo 主题 MemE</title>
 
-    <link rel="stylesheet" href="/note/css/meme.min.7cbaca39fcff1a80f34a9b48de7a927628475a23fff9eb10a0c82c3c248383be.css"/>
 
-    
-    
-        <script src="/note/js/meme.min.434274bb2302fe029f98d3d29ae57dab1566be565436f52a6dd93089085533c4.js"></script>
-
-    
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB&#43;Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" media="print" onload="this.media='all'" />
-        <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB&#43;Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" /></noscript>
-
-    <meta name="author" content="jianse" /><meta name="description" content="第十一章 集合框架 像C&#43;&#43;的STL一样, java也有提供给我们的容器. 它存放在java……" />
-
-    <link rel="shortcut icon" href="/note/favicon.ico" type="image/x-icon" />
-    <link rel="mask-icon" href="/note/icons/safari-pinned-tab.svg" color="#2a6df4" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/note/icons/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="Hugo 主题 MemE" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="application-name" content="Hugo 主题 MemE" />
-    <meta name="msapplication-starturl" content="../../../../" />
-    <meta name="msapplication-TileColor" content="#fff" />
-    <meta name="msapplication-TileImage" content="../../../../icons/mstile-150x150.png" />
-    <link rel="manifest" href="/note/manifest.json" />
-
-    
-    
-
-    
-    <link rel="canonical" href="https://jianse.gitee.io/note/posts/java/chapter_11/" />
-    
-
-<script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "datePublished": "2019-08-15T12:19:59+08:00",
-        "dateModified": "2020-12-22T17:19:15+08:00",
-        "url": "https://jianse.gitee.io/note/posts/java/chapter_11/",
-        "headline": "[Java笔记]第十一章 集合框架",
-        "description": "第十一章 集合框架 像C++的STL一样, java也有提供给我们的容器. 它存放在java……",
-        "inLanguage" : "zh-CN",
-        "articleSection": "posts",
-        "wordCount":  5346 ,
-        "image": ["https://s2.ax1x.com/2019/08/16/mZ0zgU.png"],
-        "author": {
-            "@type": "Person",
-            "description": "Viva La Vida",
-            "email": "jianse@gmail.com",
-            "image": "https://jianse.gitee.io/icons/apple-touch-icon.png",
-            "url": "https://io-oi.me/",
-            "name": "jianse"
-        },
-        "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)",
-        "publisher": {
-            "@type": "Organization",
-            "name": "Hugo 主题 MemE",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://jianse.gitee.io/icons/apple-touch-icon.png"
-            },
-            "url": "https://jianse.gitee.io/"
-        },
-        "mainEntityOfPage": {
-            "@type": "WebSite",
-            "@id": "https://jianse.gitee.io/"
-        }
-    }
-</script>
-
-    
-    
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
 
 
 
 <meta property="og:title" content="[Java笔记]第十一章 集合框架" />
-<meta property="og:description" content="第十一章 集合框架 像C&#43;&#43;的STL一样, java也有提供给我们的容器. 它存放在java……" />
-<meta property="og:url" content="https://jianse.gitee.io/note/posts/java/chapter_11/" />
-<meta property="og:site_name" content="Hugo 主题 MemE" />
-<meta property="og:locale" content="zh" /><meta property="og:image" content="https://s2.ax1x.com/2019/08/16/mZ0zgU.png" />
+<meta property="og:description" content="第十一章 集合框架 像C&#43;&#43;的STL一样, java也有提供给我们的容器. 它存放在java.util包下, 以Collection和Map为根的两族接口和他们的实现类为主的泛型容器
+如下图:
+11.1 Collection Collection接口定义了所有Collection的公共行为
+主要的方法有:
+   方法名 操作     isEmpty() 判断Collection是否为空   contains(Object o) 判断元素是否在Collection中   add(T item); 向Collection中添加元素   remove(T item) 移除Collection中的元素   iterate(); 获得Collection的迭代器    11.2 List List接口是Collection接口下的一支, List是Collection的更具体的一类
+11.2.1 List的特点  元素(逻辑上)以线性方式存储 可以存放重复对象 元素是有序的 可以进行随机存取  11.2.2 Vector Vector是java 1.0 版本时就引入的集合实现类, 它实现了一个可以同台增长的数组, 可以根据所存入的元素动态的伸缩.
+Vector是线程安全的, 所以Vector可以在多线程场景下安全的使用, 但也因为线程安全使其效率有所限制
+如果不需要线程安全的使用可伸缩的数组可以使用ArrayList
+11.2.3 Stack Stack是一种先进后出(LIFO)的容器, 它是Vector的子类, 这意味着Stack也是线程安全的." />
 <meta property="og:type" content="article" />
-    <meta property="article:published_time" content="2019-08-15T12:19:59&#43;08:00" />
-    <meta property="article:modified_time" content="2020-12-22T17:19:15&#43;08:00" />
-    
-    <meta property="article:section" content="posts" />
+<meta property="og:url" content="https://jianse.gitee.io/note/posts/java/chapter_11/" />
+<meta property="article:published_time" content="2019-08-15T12:19:59+08:00" />
+<meta property="article:modified_time" content="2019-08-15T12:19:59+08:00" /><meta property="og:site_name" content="My Blog" />
 
 
 
-    
+
+
+
+
+
+
+
+<script src="/note/vendor/js/jquery.min.js" ></script>
+<script src="/note/vendor/js/popper.min.js" ></script>
+<script src="/note/vendor/js/bootstrap.min.js" ></script>
+<script src="/note/vendor/js/smooth-scroll.polyfills.min.js" ></script>
+<link type="text/css" rel="stylesheet" href="/note/vendor/css/bootstrap.min.css">
+<script src="/note/vendor/js/vue.min.js" ></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="https://jianse.gitee.io/note/scss/journal.min.c116bc90d171283f099f173854157ec8f183f9073b93443b2c8ad82899ee9025.css" integrity="sha256-wRa8kNFxKD8Jnxc4VBV&#43;yPGD&#43;Qc7k0Q7LIrYKJnukCU=" media="screen">
+
+
+
+<link rel="stylesheet" href="https://jianse.gitee.io/note/scss/dark-mode.min.552aae4638a84aa57cf0b195750a49ea9131d3bb621d1ed3ebc9b14b18166536.css" integrity="sha256-VSquRjioSqV88LGVdQpJ6pEx07tiHR7T68mxSxgWZTY=" media="screen">
+
+
+<script src="https://jianse.gitee.io/note//js/loadCSS.js"></script>
+<script>
+  loadCSS("https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Noto+Serif+SC|Material+Icons");
+</script>
+
+
+
+
+  
+    <script src="https://jianse.gitee.io/note//js/toc-collapse.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
 </head>
+<body>
+    	<div id="app"><div ref="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://jianse.gitee.io/note/">
+    
+        <div class="nav-title">
+            Jianse&#39;s note
+        </div>
+        
+        <div class="nav-subtitle">
+            Themed by Diary.
+        </div>
+        
+    </a>
 
-    <body>
-        <div class="container">
+    <div class="nav-link-list">
+        
+        
             
-    <header class="header">
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/note/posts">
+                Archive
+            </a>
+            
         
-            <div class="header-wrapper">
-                <div class="header-inner single">
-                    
-    <div class="site-brand">
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/note/categories">
+                Categories
+            </a>
+            
         
-            <a href="/note/" class="brand">Hugo 主题 MemE</a>
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/note/tags">
+                Tags
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/note/index.xml">
+                RSS Feed
+            </a>
+            
         
     </div>
 
-                    <nav class="nav">
-    <ul class="menu" id="menu">
-        
-            
-        
-        
-        
-        
-            
-                <li class="menu-item"><a href="/note/posts/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon archive"><path d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"/></svg><span class="menu-item-name">文章</span></a>
-                </li>
-            
-        
-            
-                <li class="menu-item"><a href="/note/categories/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon th"><path d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"/></svg><span class="menu-item-name">分类</span></a>
-                </li>
-            
-        
-            
-                <li class="menu-item"><a href="/note/tags/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="icon tags"><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg><span class="menu-item-name">标签</span></a>
-                </li>
-            
-        
-            
-                <li class="menu-item"><a href="/note/about/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="icon user-circle"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"/></svg><span class="menu-item-name">关于</span></a>
-                </li>
-            
-        
-            
-                
-                    
-                    
-                        <li class="menu-item">
-                            <a id="theme-switcher" href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-light"><path d="M193.2 104.5l48.8-97.5a18 18 0 0128 0l48.8 97.5 103.4 -34.5a18 18 0 0119.8 19.8l-34.5 103.4l97.5 48.8a18 18 0 010 28l-97.5 48.8 34.5 103.4a18 18 0 01-19.8 19.8l-103.4-34.5-48.8 97.5a18 18 0 01-28 0l-48.8-97.5l-103.4 34.5a18 18 0 01-19.8-19.8l34.5-103.4-97.5-48.8a18 18 0 010-28l97.5-48.8-34.5-103.4a18 18 0 0119.8-19.8zM256 128a128 128 0 10.01 0M256 160a96 96 0 10.01 0"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-dark"><path d="M27 412a256 256 0 10154-407a11.5 11.5 0 00-5 20a201.5 201.5 0 01-134 374a11.5 11.5 0 00-15 13"/></svg></a>
-                        </li>
-                    
-                
-            
-        
-            
-                
-            
-        
-    </ul>
-</nav>
+    
 
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://amazingrise.net">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+
+    </div>
+    
+</div><div ref="extraContainer" class="extra-container">
+    
+    
+    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%ac%ac%e5%8d%81%e4%b8%80%e7%ab%a0-%e9%9b%86%e5%90%88%e6%a1%86%e6%9e%b6" onclick="onNavClick(`#第十一章-集合框架-nav`)" id="第十一章-集合框架-nav">
+									第十一章 集合框架
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
+						
+							<li>
+								<a href="#111-collection" onclick="onNavClick(`#111-collection-nav`)" id="111-collection-nav">
+									11.1 Collection
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#112-list" onclick="onNavClick(`#112-list-nav`)" id="112-list-nav">
+									11.2 List
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
+						
+							<li>
+								<a href="#1121-list%e7%9a%84%e7%89%b9%e7%82%b9" onclick="onNavClick(`#1121-list的特点-nav`)" id="1121-list的特点-nav">
+									11.2.1 List的特点
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1122-vector" onclick="onNavClick(`#1122-vector-nav`)" id="1122-vector-nav">
+									11.2.2 Vector
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1123-stack" onclick="onNavClick(`#1123-stack-nav`)" id="1123-stack-nav">
+									11.2.3 Stack
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1124-arraylist-idarraylist" onclick="onNavClick(`#1124-arraylist-idarraylist-nav`)" id="1124-arraylist-idarraylist-nav">
+									11.2.4 ArrayList :id=arraylist
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1125-linkedlist" onclick="onNavClick(`#1125-linkedlist-nav`)" id="1125-linkedlist-nav">
+									11.2.5 LinkedList
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1126-%e6%97%b6%e9%97%b4%e5%a4%8d%e6%9d%82%e5%ba%a6%e6%af%94%e8%be%83" onclick="onNavClick(`#1126-时间复杂度比较-nav`)" id="1126-时间复杂度比较-nav">
+									11.2.6 时间复杂度比较
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#113-set" onclick="onNavClick(`#113-set-nav`)" id="113-set-nav">
+									11.3 Set
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
+						
+							<li>
+								<a href="#1131-set%e7%9a%84%e7%89%b9%e7%82%b9" onclick="onNavClick(`#1131-set的特点-nav`)" id="1131-set的特点-nav">
+									11.3.1 Set的特点
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1132-hashset" onclick="onNavClick(`#1132-hashset-nav`)" id="1132-hashset-nav">
+									11.3.2 HashSet
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1133-linkedhashset" onclick="onNavClick(`#1133-linkedhashset-nav`)" id="1133-linkedhashset-nav">
+									11.3.3 LinkedHashSet
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1134-treeset" onclick="onNavClick(`#1134-treeset-nav`)" id="1134-treeset-nav">
+									11.3.4 TreeSet
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#114-queue" onclick="onNavClick(`#114-queue-nav`)" id="114-queue-nav">
+									11.4 Queue
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
+						
+							<li>
+								<a href="#%e9%98%9f%e5%88%97%e6%96%b9%e6%b3%95%e6%80%bb%e7%bb%93" onclick="onNavClick(`#队列方法总结-nav`)" id="队列方法总结-nav">
+									队列方法总结
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1141-queue%e7%9a%84%e7%89%b9%e7%82%b9" onclick="onNavClick(`#1141-queue的特点-nav`)" id="1141-queue的特点-nav">
+									11.4.1 Queue的特点
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1142-priorityqueue" onclick="onNavClick(`#1142-priorityqueue-nav`)" id="1142-priorityqueue-nav">
+									11.4.2 PriorityQueue
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1143-deque-iddeque" onclick="onNavClick(`#1143-deque-iddeque-nav`)" id="1143-deque-iddeque-nav">
+									11.4.3 Deque :id=deque
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
+						
+							<li>
+								<a href="#queue%e4%b8%8edeque%e6%96%b9%e6%b3%95%e6%af%94%e8%be%83" onclick="onNavClick(`#queue与deque方法比较-nav`)" id="queue与deque方法比较-nav">
+									Queue与Deque方法比较
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#stack%e4%b8%8edeque%e6%96%b9%e6%b3%95%e6%af%94%e8%be%83" onclick="onNavClick(`#stack与deque方法比较-nav`)" id="stack与deque方法比较-nav">
+									Stack与Deque方法比较
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#1144-arraydeque" onclick="onNavClick(`#1144-arraydeque-nav`)" id="1144-arraydeque-nav">
+									11.4.4 ArrayDeque
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1145-linkedlist" onclick="onNavClick(`#1145-linkedlist-nav`)" id="1145-linkedlist-nav">
+									11.4.5 LinkedList
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#115-map" onclick="onNavClick(`#115-map-nav`)" id="115-map-nav">
+									11.5 Map
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
+						
+							<li>
+								<a href="#1151-map%e7%89%b9%e7%82%b9" onclick="onNavClick(`#1151-map特点-nav`)" id="1151-map特点-nav">
+									11.5.1 Map特点
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1152-hashmap" onclick="onNavClick(`#1152-hashmap-nav`)" id="1152-hashmap-nav">
+									11.5.2 HashMap
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1153-linkedhashmap" onclick="onNavClick(`#1153-linkedhashmap-nav`)" id="1153-linkedhashmap-nav">
+									11.5.3 LinkedHashMap
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1154-treemap" onclick="onNavClick(`#1154-treemap-nav`)" id="1154-treemap-nav">
+									11.5.4 TreeMap
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1155-hashtable" onclick="onNavClick(`#1155-hashtable-nav`)" id="1155-hashtable-nav">
+									11.5.5 Hashtable
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1156-properties" onclick="onNavClick(`#1156-properties-nav`)" id="1156-properties-nav">
+									11.5.6 Properties
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#116-%e9%9b%86%e5%90%88%e6%b3%9b%e5%9e%8b%e5%a4%9a%e6%80%81%e4%b8%8e%e9%9d%a2%e5%90%91%e6%8e%a5%e5%8f%a3" onclick="onNavClick(`#116-集合泛型多态与面向接口-nav`)" id="116-集合泛型多态与面向接口-nav">
+									11.6 集合、泛型、多态与面向接口
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
+						
+							<li>
+								<a href="#1161-%e9%9b%86%e5%90%88%e4%b8%8e%e6%b3%9b%e5%9e%8b" onclick="onNavClick(`#1161-集合与泛型-nav`)" id="1161-集合与泛型-nav">
+									11.6.1 集合与泛型
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1162-%e6%b3%9b%e5%9e%8b%e9%9b%86%e5%90%88%e7%9a%84%e5%a5%bd%e5%a4%84" onclick="onNavClick(`#1162-泛型集合的好处-nav`)" id="1162-泛型集合的好处-nav">
+									11.6.2 泛型集合的好处
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1163-%e4%bd%bf%e7%94%a8%e6%b3%9b%e5%9e%8b%e9%9b%86%e5%90%88" onclick="onNavClick(`#1163-使用泛型集合-nav`)" id="1163-使用泛型集合-nav">
+									11.6.3 使用泛型集合
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1164-%e9%9b%86%e5%90%88%e4%b8%8e%e5%a4%9a%e6%80%81" onclick="onNavClick(`#1164-集合与多态-nav`)" id="1164-集合与多态-nav">
+									11.6.4 集合与多态
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1165-%e9%9d%a2%e5%90%91%e6%8e%a5%e5%8f%a3" onclick="onNavClick(`#1165-面向接口-nav`)" id="1165-面向接口-nav">
+									11.6.5 面向接口
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#117-collections%e5%92%8carrays%e5%b7%a5%e5%85%b7%e7%b1%bb" onclick="onNavClick(`#117-collections和arrays工具类-nav`)" id="117-collections和arrays工具类-nav">
+									11.7 Collections和Arrays工具类
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
+						
+							<li>
+								<a href="#1171-collections%e5%b7%a5%e5%85%b7%e7%b1%bb" onclick="onNavClick(`#1171-collections工具类-nav`)" id="1171-collections工具类-nav">
+									11.7.1 Collections工具类
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1172-arrays%e5%b7%a5%e5%85%b7%e7%b1%bb" onclick="onNavClick(`#1172-arrays工具类-nav`)" id="1172-arrays工具类-nav">
+									11.7.2 Arrays工具类
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#118-%e9%81%8d%e5%8e%86%e5%ae%b9%e5%99%a8" onclick="onNavClick(`#118-遍历容器-nav`)" id="118-遍历容器-nav">
+									11.8 遍历容器
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
+						
+							<li>
+								<a href="#1181-list%e7%9a%84%e9%81%8d%e5%8e%86" onclick="onNavClick(`#1181-list的遍历-nav`)" id="1181-list的遍历-nav">
+									11.8.1 List的遍历
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1182-set%e7%9a%84%e9%81%8d%e5%8e%86" onclick="onNavClick(`#1182-set的遍历-nav`)" id="1182-set的遍历-nav">
+									11.8.2 Set的遍历
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1183-map%e7%9a%84%e9%81%8d%e5%8e%86" onclick="onNavClick(`#1183-map的遍历-nav`)" id="1183-map的遍历-nav">
+									11.8.3 Map的遍历
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#119-javautilconcurrent%e5%8c%85" onclick="onNavClick(`#119-javautilconcurrent包-nav`)" id="119-javautilconcurrent包-nav">
+									11.9 java.util.concurrent包
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+    
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a class="pagination-action" v-on:click="toggleDarkMode">
+            <i class="material-icons pagination-action-icon" v-if="isDarkMode">
+                brightness_4
+            </i>
+            <i class="material-icons pagination-action-icon" v-else="isDarkMode">
+                brightness_7
+            </i>
+        </a>
+        
+        
+    </div>
+</div>
+<div class="single-column-drawer-container" ref="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
                     
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/note/posts">
+                    Archive
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/note/categories">
+                    Categories
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/note/tags">
+                    Tags
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/note/index.xml">
+                    RSS Feed
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%ac%ac%e5%8d%81%e4%b8%80%e7%ab%a0-%e9%9b%86%e5%90%88%e6%a1%86%e6%9e%b6" onclick="onNavClick(`#第十一章-集合框架-nav`)" id="第十一章-集合框架-nav">
+									第十一章 集合框架
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
+						
+							<li>
+								<a href="#111-collection" onclick="onNavClick(`#111-collection-nav`)" id="111-collection-nav">
+									11.1 Collection
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#112-list" onclick="onNavClick(`#112-list-nav`)" id="112-list-nav">
+									11.2 List
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
+						
+							<li>
+								<a href="#1121-list%e7%9a%84%e7%89%b9%e7%82%b9" onclick="onNavClick(`#1121-list的特点-nav`)" id="1121-list的特点-nav">
+									11.2.1 List的特点
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1122-vector" onclick="onNavClick(`#1122-vector-nav`)" id="1122-vector-nav">
+									11.2.2 Vector
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1123-stack" onclick="onNavClick(`#1123-stack-nav`)" id="1123-stack-nav">
+									11.2.3 Stack
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1124-arraylist-idarraylist" onclick="onNavClick(`#1124-arraylist-idarraylist-nav`)" id="1124-arraylist-idarraylist-nav">
+									11.2.4 ArrayList :id=arraylist
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1125-linkedlist" onclick="onNavClick(`#1125-linkedlist-nav`)" id="1125-linkedlist-nav">
+									11.2.5 LinkedList
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1126-%e6%97%b6%e9%97%b4%e5%a4%8d%e6%9d%82%e5%ba%a6%e6%af%94%e8%be%83" onclick="onNavClick(`#1126-时间复杂度比较-nav`)" id="1126-时间复杂度比较-nav">
+									11.2.6 时间复杂度比较
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#113-set" onclick="onNavClick(`#113-set-nav`)" id="113-set-nav">
+									11.3 Set
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
+						
+							<li>
+								<a href="#1131-set%e7%9a%84%e7%89%b9%e7%82%b9" onclick="onNavClick(`#1131-set的特点-nav`)" id="1131-set的特点-nav">
+									11.3.1 Set的特点
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1132-hashset" onclick="onNavClick(`#1132-hashset-nav`)" id="1132-hashset-nav">
+									11.3.2 HashSet
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1133-linkedhashset" onclick="onNavClick(`#1133-linkedhashset-nav`)" id="1133-linkedhashset-nav">
+									11.3.3 LinkedHashSet
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1134-treeset" onclick="onNavClick(`#1134-treeset-nav`)" id="1134-treeset-nav">
+									11.3.4 TreeSet
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#114-queue" onclick="onNavClick(`#114-queue-nav`)" id="114-queue-nav">
+									11.4 Queue
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
+						
+							<li>
+								<a href="#%e9%98%9f%e5%88%97%e6%96%b9%e6%b3%95%e6%80%bb%e7%bb%93" onclick="onNavClick(`#队列方法总结-nav`)" id="队列方法总结-nav">
+									队列方法总结
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1141-queue%e7%9a%84%e7%89%b9%e7%82%b9" onclick="onNavClick(`#1141-queue的特点-nav`)" id="1141-queue的特点-nav">
+									11.4.1 Queue的特点
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1142-priorityqueue" onclick="onNavClick(`#1142-priorityqueue-nav`)" id="1142-priorityqueue-nav">
+									11.4.2 PriorityQueue
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1143-deque-iddeque" onclick="onNavClick(`#1143-deque-iddeque-nav`)" id="1143-deque-iddeque-nav">
+									11.4.3 Deque :id=deque
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
+						
+							<li>
+								<a href="#queue%e4%b8%8edeque%e6%96%b9%e6%b3%95%e6%af%94%e8%be%83" onclick="onNavClick(`#queue与deque方法比较-nav`)" id="queue与deque方法比较-nav">
+									Queue与Deque方法比较
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#stack%e4%b8%8edeque%e6%96%b9%e6%b3%95%e6%af%94%e8%be%83" onclick="onNavClick(`#stack与deque方法比较-nav`)" id="stack与deque方法比较-nav">
+									Stack与Deque方法比较
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#1144-arraydeque" onclick="onNavClick(`#1144-arraydeque-nav`)" id="1144-arraydeque-nav">
+									11.4.4 ArrayDeque
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1145-linkedlist" onclick="onNavClick(`#1145-linkedlist-nav`)" id="1145-linkedlist-nav">
+									11.4.5 LinkedList
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#115-map" onclick="onNavClick(`#115-map-nav`)" id="115-map-nav">
+									11.5 Map
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
+						
+							<li>
+								<a href="#1151-map%e7%89%b9%e7%82%b9" onclick="onNavClick(`#1151-map特点-nav`)" id="1151-map特点-nav">
+									11.5.1 Map特点
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1152-hashmap" onclick="onNavClick(`#1152-hashmap-nav`)" id="1152-hashmap-nav">
+									11.5.2 HashMap
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1153-linkedhashmap" onclick="onNavClick(`#1153-linkedhashmap-nav`)" id="1153-linkedhashmap-nav">
+									11.5.3 LinkedHashMap
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1154-treemap" onclick="onNavClick(`#1154-treemap-nav`)" id="1154-treemap-nav">
+									11.5.4 TreeMap
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1155-hashtable" onclick="onNavClick(`#1155-hashtable-nav`)" id="1155-hashtable-nav">
+									11.5.5 Hashtable
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1156-properties" onclick="onNavClick(`#1156-properties-nav`)" id="1156-properties-nav">
+									11.5.6 Properties
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#116-%e9%9b%86%e5%90%88%e6%b3%9b%e5%9e%8b%e5%a4%9a%e6%80%81%e4%b8%8e%e9%9d%a2%e5%90%91%e6%8e%a5%e5%8f%a3" onclick="onNavClick(`#116-集合泛型多态与面向接口-nav`)" id="116-集合泛型多态与面向接口-nav">
+									11.6 集合、泛型、多态与面向接口
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
+						
+							<li>
+								<a href="#1161-%e9%9b%86%e5%90%88%e4%b8%8e%e6%b3%9b%e5%9e%8b" onclick="onNavClick(`#1161-集合与泛型-nav`)" id="1161-集合与泛型-nav">
+									11.6.1 集合与泛型
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1162-%e6%b3%9b%e5%9e%8b%e9%9b%86%e5%90%88%e7%9a%84%e5%a5%bd%e5%a4%84" onclick="onNavClick(`#1162-泛型集合的好处-nav`)" id="1162-泛型集合的好处-nav">
+									11.6.2 泛型集合的好处
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1163-%e4%bd%bf%e7%94%a8%e6%b3%9b%e5%9e%8b%e9%9b%86%e5%90%88" onclick="onNavClick(`#1163-使用泛型集合-nav`)" id="1163-使用泛型集合-nav">
+									11.6.3 使用泛型集合
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1164-%e9%9b%86%e5%90%88%e4%b8%8e%e5%a4%9a%e6%80%81" onclick="onNavClick(`#1164-集合与多态-nav`)" id="1164-集合与多态-nav">
+									11.6.4 集合与多态
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1165-%e9%9d%a2%e5%90%91%e6%8e%a5%e5%8f%a3" onclick="onNavClick(`#1165-面向接口-nav`)" id="1165-面向接口-nav">
+									11.6.5 面向接口
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#117-collections%e5%92%8carrays%e5%b7%a5%e5%85%b7%e7%b1%bb" onclick="onNavClick(`#117-collections和arrays工具类-nav`)" id="117-collections和arrays工具类-nav">
+									11.7 Collections和Arrays工具类
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
+						
+							<li>
+								<a href="#1171-collections%e5%b7%a5%e5%85%b7%e7%b1%bb" onclick="onNavClick(`#1171-collections工具类-nav`)" id="1171-collections工具类-nav">
+									11.7.1 Collections工具类
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1172-arrays%e5%b7%a5%e5%85%b7%e7%b1%bb" onclick="onNavClick(`#1172-arrays工具类-nav`)" id="1172-arrays工具类-nav">
+									11.7.2 Arrays工具类
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#118-%e9%81%8d%e5%8e%86%e5%ae%b9%e5%99%a8" onclick="onNavClick(`#118-遍历容器-nav`)" id="118-遍历容器-nav">
+									11.8 遍历容器
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								<ul class="collapse" data-toggle="collapse">
+							
+						
+						
+							<li>
+								<a href="#1181-list%e7%9a%84%e9%81%8d%e5%8e%86" onclick="onNavClick(`#1181-list的遍历-nav`)" id="1181-list的遍历-nav">
+									11.8.1 List的遍历
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1182-set%e7%9a%84%e9%81%8d%e5%8e%86" onclick="onNavClick(`#1182-set的遍历-nav`)" id="1182-set的遍历-nav">
+									11.8.2 Set的遍历
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#1183-map%e7%9a%84%e9%81%8d%e5%8e%86" onclick="onNavClick(`#1183-map的遍历-nav`)" id="1183-map的遍历-nav">
+									11.8.3 Map的遍历
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#119-javautilconcurrent%e5%8c%85" onclick="onNavClick(`#119-javautilconcurrent包-nav`)" id="119-javautilconcurrent包-nav">
+									11.9 java.util.concurrent包
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav ref="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div ref="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a ref="navTitle" class="navbar-brand" href="https://jianse.gitee.io/note/">
+            Jianse&#39;s note
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" v-on:click="toggleDarkMode">
+            <i class="material-icons" v-if="isDarkMode">
+                brightness_4
+            </i>
+            <i class="material-icons" v-else="isDarkMode">
+                brightness_7
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" ref="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://jianse.gitee.io/note/">
+        <div class="single-column-header-title">Jianse&#39;s note</div>
+        
+        <div class="single-column-header-subtitle">Themed by Diary.</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+<div ref="streamContainer" class="stream-container">
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    [Java笔记]第十一章 集合框架
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2019-08-15 12:19
+                        </time>
+                        
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/note/categories/">[javase]</a>
+                                &nbsp;
+                        
+
+                        
+                        
+                    </div>
                 </div>
             </div>
             
-    <input type="checkbox" id="nav-toggle" aria-hidden="true" />
-    <label for="nav-toggle" class="nav-toggle"></label>
-    <label for="nav-toggle" class="nav-curtain"></label>
-
-
-        
-    </header>
-
-
-
-
-            
-            
-    <main class="main single" id="main">
-    <div class="main-inner">
-
-        
-
-        <article class="content post h-entry" data-align="justify" data-type="posts" data-toc-num="true">
-
-            <h1 class="post-title p-name">[Java笔记]第十一章 集合框架</h1>
-
-            
-
-            
+            <div class="post-body-wrapper">
                 
-            
-
-            
+                <div class="post-body" v-pre>
                 
-
-<div class="post-meta">
-    
-        
-        <time datetime="2019-08-15T12:19:59&#43;08:00" class="post-meta-item published dt-published"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg>&nbsp;2019.8.15</time>
-    
-    
-        
-        <time datetime="2020-12-22T17:19:15&#43;08:00" class="post-meta-item modified dt-updated"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.65L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.97z"/></svg>&nbsp;2020.12.22</time>
-    
-    
-    
-        
-        
-        
-            
-                <span class="post-meta-item category"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>&nbsp;<a href="/note/categories/javase/" class="category-link p-category">javase</a></span>
-            
-        
-    
-    
-        
-        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;5346</span>
-    
-    
-        
-        <span class="post-meta-item reading-time"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg>&nbsp;11&nbsp;分钟</span>
-    
-    
-    
-</div>
-
-            
-
-            <nav class="contents">
-  <h2 id="contents" class="contents-title">目录</h2><ul class="toc">
-    <li><a id="contents:111-collection" href="#111-collection">11.1 Collection</a></li>
-    <li><a id="contents:112-list" href="#112-list">11.2 List</a>
-      <ul>
-        <li><a id="contents:1121-list的特点" href="#1121-list的特点">11.2.1 List的特点</a></li>
-        <li><a id="contents:1122-vector" href="#1122-vector">11.2.2 Vector</a></li>
-        <li><a id="contents:1123-stack" href="#1123-stack">11.2.3 Stack</a></li>
-        <li><a id="contents:1124-arraylist-idarraylist" href="#1124-arraylist-idarraylist">11.2.4 ArrayList :id=arraylist</a></li>
-        <li><a id="contents:1125-linkedlist" href="#1125-linkedlist">11.2.5 LinkedList</a></li>
-        <li><a id="contents:1126-时间复杂度比较" href="#1126-时间复杂度比较">11.2.6 时间复杂度比较</a></li>
-      </ul>
-    </li>
-    <li><a id="contents:113-set" href="#113-set">11.3 Set</a>
-      <ul>
-        <li><a id="contents:1131-set的特点" href="#1131-set的特点">11.3.1 Set的特点</a></li>
-        <li><a id="contents:1132-hashset" href="#1132-hashset">11.3.2 HashSet</a></li>
-        <li><a id="contents:1133-linkedhashset" href="#1133-linkedhashset">11.3.3 LinkedHashSet</a></li>
-        <li><a id="contents:1134-treeset" href="#1134-treeset">11.3.4 TreeSet</a></li>
-      </ul>
-    </li>
-    <li><a id="contents:114-queue" href="#114-queue">11.4 Queue</a>
-      <ul>
-        <li><a id="contents:队列方法总结" href="#队列方法总结">队列方法总结</a></li>
-        <li><a id="contents:1141-queue的特点" href="#1141-queue的特点">11.4.1 Queue的特点</a></li>
-        <li><a id="contents:1142-priorityqueue" href="#1142-priorityqueue">11.4.2 PriorityQueue</a></li>
-        <li><a id="contents:1143-deque-iddeque" href="#1143-deque-iddeque">11.4.3 Deque :id=deque</a></li>
-        <li><a id="contents:1144-arraydeque" href="#1144-arraydeque">11.4.4 ArrayDeque</a></li>
-        <li><a id="contents:1145-linkedlist" href="#1145-linkedlist">11.4.5 LinkedList</a></li>
-      </ul>
-    </li>
-    <li><a id="contents:115-map" href="#115-map">11.5 Map</a>
-      <ul>
-        <li><a id="contents:1151-map特点" href="#1151-map特点">11.5.1 Map特点</a></li>
-        <li><a id="contents:1152-hashmap" href="#1152-hashmap">11.5.2 HashMap</a></li>
-        <li><a id="contents:1153-linkedhashmap" href="#1153-linkedhashmap">11.5.3 LinkedHashMap</a></li>
-        <li><a id="contents:1154-treemap" href="#1154-treemap">11.5.4 TreeMap</a></li>
-        <li><a id="contents:1155-hashtable" href="#1155-hashtable">11.5.5 Hashtable</a></li>
-        <li><a id="contents:1156-properties" href="#1156-properties">11.5.6 Properties</a></li>
-      </ul>
-    </li>
-    <li><a id="contents:116-集合泛型多态与面向接口" href="#116-集合泛型多态与面向接口">11.6 集合、泛型、多态与面向接口</a>
-      <ul>
-        <li><a id="contents:1161-集合与泛型" href="#1161-集合与泛型">11.6.1 集合与泛型</a></li>
-        <li><a id="contents:1162-泛型集合的好处" href="#1162-泛型集合的好处">11.6.2 泛型集合的好处</a></li>
-        <li><a id="contents:1163-使用泛型集合" href="#1163-使用泛型集合">11.6.3 使用泛型集合</a></li>
-        <li><a id="contents:1164-集合与多态" href="#1164-集合与多态">11.6.4 集合与多态</a></li>
-        <li><a id="contents:1165-面向接口" href="#1165-面向接口">11.6.5 面向接口</a></li>
-      </ul>
-    </li>
-    <li><a id="contents:117-collections和arrays工具类" href="#117-collections和arrays工具类">11.7 Collections和Arrays工具类</a>
-      <ul>
-        <li><a id="contents:1171-collections工具类" href="#1171-collections工具类">11.7.1 Collections工具类</a></li>
-        <li><a id="contents:1172-arrays工具类" href="#1172-arrays工具类">11.7.2 Arrays工具类</a></li>
-      </ul>
-    </li>
-    <li><a id="contents:118-遍历容器" href="#118-遍历容器">11.8 遍历容器</a>
-      <ul>
-        <li><a id="contents:1181-list的遍历" href="#1181-list的遍历">11.8.1 List的遍历</a></li>
-        <li><a id="contents:1182-set的遍历" href="#1182-set的遍历">11.8.2 Set的遍历</a></li>
-        <li><a id="contents:1183-map的遍历" href="#1183-map的遍历">11.8.3 Map的遍历</a></li>
-      </ul>
-    </li>
-    <li><a id="contents:119-javautilconcurrent包" href="#119-javautilconcurrent包">11.9 java.util.concurrent包</a></li>
-  </ul>
-</nav><div class="post-body e-content">
-              <h1 id="第十一章-集合框架"><a href="#第十一章-集合框架" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:第十一章-集合框架" class="headings">第十一章 集合框架</a></h1>
+                    <h1 id="第十一章-集合框架">第十一章 集合框架</h1>
 <p>像C++的STL一样, java也有提供给我们的容器. 它存放在java.util包下, 以Collection和Map为根的两族接口和他们的实现类为主的泛型容器</p>
 <p>如下图:</p>
 <p><img src="https://s2.ax1x.com/2019/08/16/mZ0zgU.png" alt="collection_framework"></p>
-<h2 id="111-collection"><a href="#111-collection" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:111-collection" class="headings">11.1 Collection</a></h2>
+<h2 id="111-collection">11.1 Collection</h2>
 <p>Collection接口定义了所有Collection的公共行为</p>
 <p>主要的方法有:</p>
-<div class="table-container"><table>
+<table>
 <thead>
 <tr>
 <th style="text-align:center">方法名</th>
@@ -338,24 +2100,24 @@
 <td style="text-align:center">获得Collection的迭代器</td>
 </tr>
 </tbody>
-</table></div>
-<h2 id="112-list"><a href="#112-list" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:112-list" class="headings">11.2 List</a></h2>
+</table>
+<h2 id="112-list">11.2 List</h2>
 <p>List接口是Collection接口下的一支, List是Collection的更具体的一类</p>
-<h3 id="1121-list的特点"><a href="#1121-list的特点" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1121-list的特点" class="headings">11.2.1 List的特点</a></h3>
+<h3 id="1121-list的特点">11.2.1 List的特点</h3>
 <ol>
 <li>元素(逻辑上)以线性方式存储</li>
 <li>可以存放重复对象</li>
 <li>元素是有序的</li>
 <li>可以进行随机存取</li>
 </ol>
-<h3 id="1122-vector"><a href="#1122-vector" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1122-vector" class="headings">11.2.2 Vector</a></h3>
+<h3 id="1122-vector">11.2.2 Vector</h3>
 <p>Vector是java 1.0 版本时就引入的集合实现类, 它实现了一个可以同台增长的数组, 可以根据所存入的元素动态的伸缩.</p>
 <p>Vector是线程安全的, 所以Vector可以在多线程场景下安全的使用, 但也因为线程安全使其效率有所限制</p>
 <p>如果不需要线程安全的使用可伸缩的数组可以使用<a href="#arraylist">ArrayList</a></p>
-<h3 id="1123-stack"><a href="#1123-stack" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1123-stack" class="headings">11.2.3 Stack</a></h3>
+<h3 id="1123-stack">11.2.3 Stack</h3>
 <p>Stack是一种先进后出(LIFO)的容器, 它是Vector的子类, 这意味着Stack也是线程安全的.</p>
 <p>Stack类为自身提供独立的操作方法</p>
-<div class="table-container"><table>
+<table>
 <thead>
 <tr>
 <th style="text-align:center">方法名</th>
@@ -384,19 +2146,19 @@
 <td style="text-align:center">查询元素与栈顶的距离</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <p>Stack也是java 1.0 时引入的 , java 1.2 时引入了<a href="#deque">Deque</a>接口, Deque接口及其实现提供了更完整和一致的LIFO堆栈操作集，应优先使用此类。</p>
-<h3 id="1124-arraylist-idarraylist"><a href="#1124-arraylist-idarraylist" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1124-arraylist-idarraylist" class="headings">11.2.4 ArrayList :id=arraylist</a></h3>
+<h3 id="1124-arraylist-idarraylist">11.2.4 ArrayList :id=arraylist</h3>
 <p>ArrayList顾名思义就是内部有数组实现的List, 它为我们封装了一系列数组操作, 让我们不必考虑增删改查时数组怎样变化, 数组如何扩展, 如何缩小, 然后向我们提供增删改查的接口.</p>
 <p>ArrayList实现了RandomACcess接口, 这是一个标记接口(没有方法的接口), 这意味着ArrayList支持常数时间复杂度的随机访问.</p>
 <p>ArrayList的访问效率较高, 插入删除效率较低, 适用于多访问少修改的使用场景.</p>
 <p>ArrayList 是 java 1.2 时集合框架引入的它与Vector的实现很相似 , 但是ArrayList时线程不安全的. 所以相应的它的效率要比Vector高.</p>
-<h3 id="1125-linkedlist"><a href="#1125-linkedlist" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1125-linkedlist" class="headings">11.2.5 LinkedList</a></h3>
+<h3 id="1125-linkedlist">11.2.5 LinkedList</h3>
 <p>LiskedList是List的链表实现, 链表解决了数组插入删除慢的缺点 , Java中所有链表实际上都是双向链接的, 即每个节点同时存放着一个向前的和一个向后的引用 . 所以LinkedList也同时也是Deque接口的实现类.</p>
 <p>LinkedList插入删除效率较高, 但是不能进行常数复杂度的随机访问, 所以适用于多增删, 少随机访问的使用场景.</p>
 <p>!&gt; <a href="#_1145-linkedlist">LinkedList</a> 同时也实现了Deque接口</p>
-<h3 id="1126-时间复杂度比较"><a href="#1126-时间复杂度比较" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1126-时间复杂度比较" class="headings">11.2.6 时间复杂度比较</a></h3>
-<div class="table-container"><table>
+<h3 id="1126-时间复杂度比较">11.2.6 时间复杂度比较</h3>
+<table>
 <thead>
 <tr>
 <th style="text-align:center">操作</th>
@@ -426,31 +2188,31 @@
 <td style="text-align:center">O(1)</td>
 </tr>
 </tbody>
-</table></div>
-<h2 id="113-set"><a href="#113-set" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:113-set" class="headings">11.3 Set</a></h2>
+</table>
+<h2 id="113-set">11.3 Set</h2>
 <p>Set是Collection接口下的另一支 , 代表了数学上的集合 , 元素是无序的 , 并且不包含重复的元素</p>
-<h3 id="1131-set的特点"><a href="#1131-set的特点" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1131-set的特点" class="headings">11.3.1 Set的特点</a></h3>
+<h3 id="1131-set的特点">11.3.1 Set的特点</h3>
 <ol>
 <li>元素是无序的</li>
 <li>没有重复元素</li>
 </ol>
-<h3 id="1132-hashset"><a href="#1132-hashset" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1132-hashset" class="headings">11.3.2 HashSet</a></h3>
+<h3 id="1132-hashset">11.3.2 HashSet</h3>
 <p>HashSet 是借助<a href="#_1152-hashmap">HashMap</a> 实现的, 将要插入的值当作HashMap的键, 值是一个固定的Object对象, 因为HashMap的key不能重复所以HashSet的元素就不能重复 .</p>
-<h3 id="1133-linkedhashset"><a href="#1133-linkedhashset" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1133-linkedhashset" class="headings">11.3.3 LinkedHashSet</a></h3>
+<h3 id="1133-linkedhashset">11.3.3 LinkedHashSet</h3>
 <p>LinkedHashSet继承自HashSet , 源码更少、更简单 , 与HashMap唯一的区别是LinkedHashSet内部使用的是<a href="#_1153-linkedhashmap">LinkedHashMap</a>。这样做的意义或者好处就是LinkedHashSet中的元素顺序是可以保证的 , 也就是说遍历序和插入序是一致的。</p>
-<h3 id="1134-treeset"><a href="#1134-treeset" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1134-treeset" class="headings">11.3.4 TreeSet</a></h3>
+<h3 id="1134-treeset">11.3.4 TreeSet</h3>
 <p>TreeSet实现了NavigableSet接口 , 该接口定义了一些搜索目标的方法 , 并且该接口扩展了 SortedSet接口 , 所以TreeSet是一个可排序并且可以搜索的集合.</p>
 <p>TreeSet包装了一个TreeMap其中Set中的元素是<a href="#_1154-treemap">TreeMap</a>的键, 而值是一个常量. 所有的方法都委托给了TreeMap</p>
 <p>因为TreeSet要实现对元素的排序所以元素必须实现Comparable接口以便对元素进行比较.</p>
-<h2 id="114-queue"><a href="#114-queue" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:114-queue" class="headings">11.4 Queue</a></h2>
+<h2 id="114-queue">11.4 Queue</h2>
 <p>Queue接口是Collection接口的子类, 也是集合框架的一员 . Queue接口通常(但不一定)定义了一种先进先出(LIFO)的数据结构</p>
 <p>Queue提供了两种操作Queue的方式</p>
 <ol>
 <li>出错时抛出异常</li>
 <li>出错时返回特殊值</li>
 </ol>
-<h3 id="队列方法总结"><a href="#队列方法总结" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:队列方法总结" class="headings">队列方法总结</a></h3>
-<div class="table-container"><table>
+<h3 id="队列方法总结">队列方法总结</h3>
+<table>
 <thead>
 <tr>
 <th style="text-align:center"> </th>
@@ -475,63 +2237,25 @@
 <td style="text-align:center">peek()</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <p>Queue实现通常不允许插入 <code>null</code> 元素, 即使允许也不应该被插入到Queue中, 因为在poll()方法中返回null用来指示队列为空.</p>
-<h3 id="1141-queue的特点"><a href="#1141-queue的特点" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1141-queue的特点" class="headings">11.4.1 Queue的特点</a></h3>
+<h3 id="1141-queue的特点">11.4.1 Queue的特点</h3>
 <ol>
 <li>先进先出(LIFO)</li>
 <li>一般上不允许插入 <code>null</code></li>
 <li>一般不支持随机访问</li>
 </ol>
-<h3 id="1142-priorityqueue"><a href="#1142-priorityqueue" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1142-priorityqueue" class="headings">11.4.2 PriorityQueue</a></h3>
+<h3 id="1142-priorityqueue">11.4.2 PriorityQueue</h3>
 <p>基于优先级堆的无界优先级队列。优先级队列的元素根据其 自然顺序排序，或者根据使用的Comparator 构造函数在队列构造时提供。优先级队列不允许null元素。依赖于自然排序的优先级队列也不允许插入不可比较的对象（这样做可能导致 ClassCastException）。</p>
 <p>!&gt; <strong>此实现不是同步的</strong> , PriorityQueue 如果任何线程修改队列，则多个线程不应同时访问实例。相反，使用线程安全PriorityBlockingQueue类。</p>
-<h3 id="1143-deque-iddeque"><a href="#1143-deque-iddeque" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1143-deque-iddeque" class="headings">11.4.3 Deque :id=deque</a></h3>
+<h3 id="1143-deque-iddeque">11.4.3 Deque :id=deque</h3>
 <p>Deque接口扩展了Queue接口提供了一个双端队列, 即既可以从队列的两端出入队的队列</p>
-<!-- markdownlint-disable MD033 -->
-<div class="table-container"><table>
- <caption>Summary of Deque methods</caption>
-  <thead>
-  <tr>
-    <td rowspan="2"></td>
-    <th scope="col" colspan="2"> First Element (Head)</th>
-    <th scope="col" colspan="2"> Last Element (Tail)</th>
-  </tr>
-  <tr>
-    <th scope="col" style="font-weight:normal; font-style:italic">Throws exception</th>
-    <th scope="col" style="font-weight:normal; font-style:italic">Special value</th>
-    <th scope="col" style="font-weight:normal; font-style:italic">Throws exception</th>
-    <th scope="col" style="font-weight:normal; font-style:italic">Special value</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <th scope="row">Insert</th>
-    <td><code>addFirst(e)</code></td>
-    <td><code>offerFirst(e)</code></td>
-    <td><code>addLast(e)</code></a></td>
-    <td><code>offerLast(e)</code></td>
-  </tr>
-  <tr>
-    <th scope="row">Remove</th>
-    <td><code>removeFirst()</code></td>
-    <td><code>pollFirst()</code></td>
-    <td><code>removeLast()</code></td>
-    <td><code>pollLast()</code></td>
-  </tr>
-  <tr>
-    <th scope="row">Examine</th>
-    <td><code>getFirst()</code></td>
-    <td><code>peekFirst()</code></td>
-    <td><code>getLast()</code></td>
-    <td><code>peekLast()</code></td>
-  </tr>
-  </tbody>
- </table></div>
-<!-- markdownlint-enable MD033 -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Deque扩展了Queue. 当deque用作队列时，会产生FIFO（先进先出）行为。元素在双端队列的末尾添加并从头开始删除。从Queue接口继承的Deque方法与下表中指示的方法完全等效 ：</p>
-<h4 id="queue与deque方法比较"><a href="#queue与deque方法比较" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:queue与deque方法比较" class="headings">Queue与Deque方法比较</a></h4>
-<div class="table-container"><table>
+<h4 id="queue与deque方法比较">Queue与Deque方法比较</h4>
+<table>
 <thead>
 <tr>
 <th style="text-align:center">Queue方法</th>
@@ -564,10 +2288,10 @@
 <td style="text-align:center">peekFirst()</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <p>同时Deque也可以当作Stack使用</p>
-<h4 id="stack与deque方法比较"><a href="#stack与deque方法比较" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:stack与deque方法比较" class="headings">Stack与Deque方法比较</a></h4>
-<div class="table-container"><table>
+<h4 id="stack与deque方法比较">Stack与Deque方法比较</h4>
+<table>
 <thead>
 <tr>
 <th style="text-align:center">Stack方法</th>
@@ -588,25 +2312,25 @@
 <td style="text-align:center">peekFirst()</td>
 </tr>
 </tbody>
-</table></div>
-<h3 id="1144-arraydeque"><a href="#1144-arraydeque" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1144-arraydeque" class="headings">11.4.4 ArrayDeque</a></h3>
+</table>
+<h3 id="1144-arraydeque">11.4.4 ArrayDeque</h3>
 <p>ArrayDeque是一个可变大小的无界双端队列, 它的底层使用数组实现. 他们不是线程安全的, 禁止使用空元素</p>
-<h3 id="1145-linkedlist"><a href="#1145-linkedlist" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1145-linkedlist" class="headings">11.4.5 LinkedList</a></h3>
+<h3 id="1145-linkedlist">11.4.5 LinkedList</h3>
 <p>上面提到了List接口下的<a href="#_1125-linkedlist">LinkedList</a> , 现在我们要重新提起它 , 它同时实现了Deque 接口 , 这意味着它同时也是一个双端队列 , 并且LinkedList允许插入 <code>null</code> 值.</p>
-<h2 id="115-map"><a href="#115-map" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:115-map" class="headings">11.5 Map</a></h2>
+<h2 id="115-map">11.5 Map</h2>
 <p>Map 是一种键-值对（key-value）集合，Map 集合中的每一个元素都包含一个键对象和一个值对象。其中，键对象不允许重复，而值对象可以重复，并且值对象还可以是 Map 类型的，就像数组中的元素还可以是数组一样。</p>
-<h3 id="1151-map特点"><a href="#1151-map特点" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1151-map特点" class="headings">11.5.1 Map特点</a></h3>
+<h3 id="1151-map特点">11.5.1 Map特点</h3>
 <ol>
 <li>Map存储的是一对值(键值对)</li>
 <li>Map的key是唯一的</li>
 <li>不同的key可以对应同一个值</li>
 </ol>
-<h3 id="1152-hashmap"><a href="#1152-hashmap" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1152-hashmap" class="headings">11.5.2 HashMap</a></h3>
+<h3 id="1152-hashmap">11.5.2 HashMap</h3>
 <p>HashMap是使用散列表(哈希表)实现的, 是Map的非同步实现 , 此实现提供所有可选的映射操作 , 并允许使用 <code>null值</code> 和 <code>null键</code> . 此类不保证映射的顺序 , 特别是它不保证该顺序恒久不变 .</p>
 <p>?&gt; <em>TODO</em> 添加链接到数据结构 , hashCode(), equals()</p>
-<h3 id="1153-linkedhashmap"><a href="#1153-linkedhashmap" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1153-linkedhashmap" class="headings">11.5.3 LinkedHashMap</a></h3>
+<h3 id="1153-linkedhashmap">11.5.3 LinkedHashMap</h3>
 <p>LinkedHashMap是HashMap的子类它扩展了HashMap的内部结构Entry , 让Entry包含了一个向前的和一个向后的引用, 这样插入的Entry就可以构成一个链表</p>
-<h3 id="1154-treemap"><a href="#1154-treemap" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1154-treemap" class="headings">11.5.4 TreeMap</a></h3>
+<h3 id="1154-treemap">11.5.4 TreeMap</h3>
 <p>TreeMap 是一个有序的key-value集合，它是通过红黑树实现的。</p>
 <p>TreeMap 继承于AbstractMap，所以它是一个Map，即一个key-value集合。</p>
 <p>TreeMap 实现了NavigableMap接口，意味着它支持一系列的导航方法。比如返回有序的key集合。</p>
@@ -616,68 +2340,68 @@
 <p>TreeMap的基本操作 containsKey、get、put 和 remove 的时间复杂度是 log(n) 。</p>
 <p>另外，TreeMap是非同步的。 它的iterator 方法返回的迭代器是fail-fastl的。</p>
 <p>?&gt; <em>TODO</em> 添加链接到数据结构</p>
-<h3 id="1155-hashtable"><a href="#1155-hashtable" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1155-hashtable" class="headings">11.5.5 Hashtable</a></h3>
+<h3 id="1155-hashtable">11.5.5 Hashtable</h3>
 <p>Hashtable类可以看作HashMap类的前身, 它在java1.1时被引入, 而HashMap产生于JDK 1.2</p>
-<p>!&gt; <a href="https://www.cnblogs.com/xinzhao/p/5644175.html" target="_blank" rel="noopener">HashMap和HashTable的不同</a></p>
-<h3 id="1156-properties"><a href="#1156-properties" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1156-properties" class="headings">11.5.6 Properties</a></h3>
+<p>!&gt; <a href="https://www.cnblogs.com/xinzhao/p/5644175.html">HashMap和HashTable的不同</a></p>
+<h3 id="1156-properties">11.5.6 Properties</h3>
 <p>Properties (Java.util. Properties) 是Hashtable类的子类 , 该类并不是集合框架的一员 , 该类主要用于读取Java的配置文件 , 不同的编程语言有自己所支持的配置文件 , 配置文件中很多变量是经常改变的 , 为了方便用户的配置 , 能让用户够脱离程序本身去修改相关的变量设置。就像在Java中 , 其配置文件常为.properties文件，是以键值对的形式进行参数配置的。</p>
-<h2 id="116-集合泛型多态与面向接口"><a href="#116-集合泛型多态与面向接口" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:116-集合泛型多态与面向接口" class="headings">11.6 集合、泛型、多态与面向接口</a></h2>
-<h3 id="1161-集合与泛型"><a href="#1161-集合与泛型" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1161-集合与泛型" class="headings">11.6.1 集合与泛型</a></h3>
+<h2 id="116-集合泛型多态与面向接口">11.6 集合、泛型、多态与面向接口</h2>
+<h3 id="1161-集合与泛型">11.6.1 集合与泛型</h3>
 <p>之前我们使用集合时一般是这样的</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">ArrayList</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
-<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;hello&#34;</span><span class="o">);</span>
-<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;world&#34;</span><span class="o">);</span>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">ArrayList list = <span style="color:#8b008b;font-weight:bold">new</span> ArrayList();
+list.<span style="color:#658b00">add</span>(<span style="color:#cd5555">&#34;hello&#34;</span>);
+list.<span style="color:#658b00">add</span>(<span style="color:#cd5555">&#34;world&#34;</span>);
 </code></pre></div><p>但是这样的使用有什么坏处吗?</p>
 <p>让我们考虑一下这样的场景 , 你使用一个ArrayList来存放一个学生列表.</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Student</span> <span class="n">s1</span> <span class="o">=</span> <span class="o">...;</span>
-<span class="n">Student</span> <span class="n">s2</span> <span class="o">=</span> <span class="o">...;</span>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Student s1 = ...;
+Student s2 = ...;
 
-<span class="n">ArrayList</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
+ArrayList students = <span style="color:#8b008b;font-weight:bold">new</span> ArrayList();
 
-<span class="n">students</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">s1</span><span class="o">);</span>
-<span class="n">students</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">s2</span><span class="o">);</span>
+students.<span style="color:#658b00">add</span>(s1);
+students.<span style="color:#658b00">add</span>(s2);
 </code></pre></div><p>emm 看起来不错~</p>
 <p>你决定为学生录入一些成绩.</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Student</span> <span class="n">s1</span> <span class="o">=</span> <span class="o">...;</span>
-<span class="n">Student</span> <span class="n">s2</span> <span class="o">=</span> <span class="o">...;</span>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Student s1 = ...;
+Student s2 = ...;
 
-<span class="n">ArrayList</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
+ArrayList students = <span style="color:#8b008b;font-weight:bold">new</span> ArrayList();
 
-<span class="n">students</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">s1</span><span class="o">);</span>
-<span class="n">students</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">s2</span><span class="o">);</span>
+students.<span style="color:#658b00">add</span>(s1);
+students.<span style="color:#658b00">add</span>(s2);
 
-<span class="n">Steudnt</span> <span class="n">stu</span> <span class="o">=</span> <span class="o">(</span><span class="n">Student</span><span class="o">)</span><span class="n">students</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">0</span><span class="o">);</span>
-<span class="n">stu</span><span class="o">.</span><span class="na">setScore</span><span class="o">(</span><span class="n">100</span><span class="o">);</span>
+Steudnt stu = (Student)students.<span style="color:#658b00">get</span>(0);
+stu.<span style="color:#658b00">setScore</span>(100);
 </code></pre></div><p>看起来也还不错 . 那么现在让我们往学生列表里面添加一些奇怪的东西 .</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Student</span> <span class="n">s1</span> <span class="o">=</span> <span class="o">...;</span>
-<span class="n">Student</span> <span class="n">s2</span> <span class="o">=</span> <span class="o">...;</span>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Student s1 = ...;
+Student s2 = ...;
 
-<span class="n">ArrayList</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
+ArrayList students = <span style="color:#8b008b;font-weight:bold">new</span> ArrayList();
 
-<span class="n">students</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">s1</span><span class="o">);</span>
-<span class="n">students</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">s2</span><span class="o">);</span>
-<span class="n">students</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;hello&#34;</span><span class="o">);</span>
+students.<span style="color:#658b00">add</span>(s1);
+students.<span style="color:#658b00">add</span>(s2);
+students.<span style="color:#658b00">add</span>(<span style="color:#cd5555">&#34;hello&#34;</span>);
 
-<span class="n">Student</span> <span class="n">stu</span> <span class="o">=</span> <span class="o">(</span><span class="n">Student</span><span class="o">)</span><span class="n">students</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">0</span><span class="o">);</span>
-<span class="n">stu</span><span class="o">.</span><span class="na">setScore</span><span class="o">(</span><span class="n">100</span><span class="o">);</span>
+Student stu = (Student)students.<span style="color:#658b00">get</span>(0);
+stu.<span style="color:#658b00">setScore</span>(100);
 </code></pre></div><p>编译并运行 , 你会发现这段代码通过了编译并且可以运行了 , 这显然并不合理 , 我们希望的是学生列表内只能存储学生信息 , 并且它在我们犯错误前可以给我们一些提示 , 如发生异常或给出一些提示 . 并不是无限的包容.</p>
 <p>泛型给我们提供了这样的特性 , 我们对上面的代码进行这样的改动</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Student</span> <span class="n">stu1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="o">();</span>
-<span class="n">Student</span> <span class="n">stu2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="o">();</span>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Student stu1 = <span style="color:#8b008b;font-weight:bold">new</span> Student();
+Student stu2 = <span style="color:#8b008b;font-weight:bold">new</span> Student();
 
-<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-<span class="n">students</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">stu1</span><span class="o">);</span>
-<span class="n">students</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">stu2</span><span class="o">);</span>
+ArrayList&lt;Student&gt; students = <span style="color:#8b008b;font-weight:bold">new</span> ArrayList&lt;&gt;();
+students.<span style="color:#658b00">add</span>(stu1);
+students.<span style="color:#658b00">add</span>(stu2);
 
-<span class="n">Student</span> <span class="n">stu</span> <span class="o">=</span> <span class="n">students</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">0</span><span class="o">);</span>
-<span class="n">stu</span><span class="o">.</span><span class="na">setScore</span><span class="o">(</span><span class="n">100</span><span class="o">);</span>
+Student stu = students.<span style="color:#658b00">get</span>(0);
+stu.<span style="color:#658b00">setScore</span>(100);
 </code></pre></div><p>可以看到在创建ArrayList类型后面加上了一对尖括号 , 其中的Student表示的是ArrayList所接受的类型 .</p>
 <p>这样我们就指定了ArrayList可以容纳的类型 , 同时 ArrayList 的get方法的返回值就变成了返回尖括号中指定的类型 , 也就免去了强制类型转换的麻烦 .</p>
 <p>这时我们再向学生列表中加入一些其他类型的元素.</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">students</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;hello&#34;</span><span class="o">);</span>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">students.<span style="color:#658b00">add</span>(<span style="color:#cd5555">&#34;hello&#34;</span>);
 </code></pre></div><p>编译, 这时候编译器报错了</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nl">Error:</span><span class="o">(</span><span class="n">47</span><span class="o">,</span> <span class="n">22</span><span class="o">)</span> <span class="n">java</span><span class="o">:</span> <span class="n">不兼容的类型</span><span class="o">:</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">String无法转换为cn</span><span class="o">.</span><span class="na">ntboy</span><span class="o">.</span><span class="na">Student</span>
-</code></pre></div><h3 id="1162-泛型集合的好处"><a href="#1162-泛型集合的好处" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1162-泛型集合的好处" class="headings">11.6.2 泛型集合的好处</a></h3>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Error:(47, 22) java: 不兼容的类型: java.<span style="color:#658b00">lang</span>.<span style="color:#658b00">String无法转换为cn</span>.<span style="color:#658b00">ntboy</span>.<span style="color:#658b00">Student</span>
+</code></pre></div><h3 id="1162-泛型集合的好处">11.6.2 泛型集合的好处</h3>
 <ol>
 <li>
 <p><strong>类型安全</strong> . 泛型的主要目标是提高 Java 程序的类型安全。通过知道使用泛型定义的变量的类型限制，编译器可以在一个高得多的程度上验证类型假设。没有泛型，这些假设就只存在于程序员的头脑中（或者如果幸运的话，还存在于代码注释中）。</p>
@@ -689,92 +2413,92 @@
 <p><strong>潜在的性能收益</strong>。 泛型为较大的优化带来可能。在泛型的初始实现中，编译器将强制类型转换（没有泛型的话，程序员会指定这些强制类型转换）插入生成的字节码中。但是更多类型信息可用于编译器这一事实，为未来版本的 JVM 的优化带来可能。由于泛型的实现方式，支持泛型（几乎）不需要 JVM 或类文件更改。所有工作都在编译器中完成，编译器生成类似于没有泛型（和强制类型转换）时所写的代码，只是更能确保类型安全而已。</p>
 </li>
 </ol>
-<h3 id="1163-使用泛型集合"><a href="#1163-使用泛型集合" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1163-使用泛型集合" class="headings">11.6.3 使用泛型集合</a></h3>
+<h3 id="1163-使用泛型集合">11.6.3 使用泛型集合</h3>
 <p>像上面的ArrayList一样 , Collection接口都有泛型参数 , 我们可以通过泛型参数指定容器内元素的类型</p>
 <p>如下:</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-<span class="n">HashSet</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">odd</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
-<span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">nameMap</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-</code></pre></div><h3 id="1164-集合与多态"><a href="#1164-集合与多态" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1164-集合与多态" class="headings">11.6.4 集合与多态</a></h3>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">ArrayList&lt;Student&gt; students = <span style="color:#8b008b;font-weight:bold">new</span> ArrayList&lt;&gt;();
+HashSet&lt;Integer&gt; odd = <span style="color:#8b008b;font-weight:bold">new</span> HashSet&lt;&gt;();
+HashMap&lt;String,Student&gt; nameMap = <span style="color:#8b008b;font-weight:bold">new</span> HashMap&lt;&gt;();
+</code></pre></div><h3 id="1164-集合与多态">11.6.4 集合与多态</h3>
 <p>考虑下面场景 , 还是上面的学生列表</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">ArrayList&lt;Student&gt; students = <span style="color:#8b008b;font-weight:bold">new</span> ArrayList&lt;&gt;();
 </code></pre></div><p>有一天你觉得ArrayList不好用决定改成LinkedList</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">student</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">LinkedList&lt;student&gt; students = <span style="color:#8b008b;font-weight:bold">new</span> LinkedList&lt;&gt;();
 </code></pre></div><p>这样以来，用到你的list的地方都得更改类型声明。更重要的是，用到你的list的人，他们写自己的代码的时候是基于“你的这个list是一个ArrayList ”这样的前提来写的，你突然把它改成了LinkedList，很可能导致他们的程序出错或者需要重写。</p>
 <p>那么就有了这样一个问题 , 如何修改自己的实现而不影响别人使用呢?</p>
 <p>多态性给了我们答案 , 当你声明一个变量的时候，把它的类型声明得越笼统越好，越具体越糟糕。笼统对修改是友好的，具体对修改不友好。</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List&lt;Student&gt; students = <span style="color:#8b008b;font-weight:bold">new</span> ArrayList&lt;&gt;();
 </code></pre></div><p>或者</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
-</code></pre></div><h3 id="1165-面向接口"><a href="#1165-面向接口" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1165-面向接口" class="headings">11.6.5 面向接口</a></h3>
-<p>!&gt; <a href="https://www.cnblogs.com/iceb/p/7093884.html" target="_blank" rel="noopener">详见</a></p>
-<h2 id="117-collections和arrays工具类"><a href="#117-collections和arrays工具类" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:117-collections和arrays工具类" class="headings">11.7 Collections和Arrays工具类</a></h2>
-<h3 id="1171-collections工具类"><a href="#1171-collections工具类" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1171-collections工具类" class="headings">11.7.1 Collections工具类</a></h3>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List&lt;Student&gt; students = <span style="color:#8b008b;font-weight:bold">new</span> LinkedList&lt;&gt;();
+</code></pre></div><h3 id="1165-面向接口">11.6.5 面向接口</h3>
+<p>!&gt; <a href="https://www.cnblogs.com/iceb/p/7093884.html">详见</a></p>
+<h2 id="117-collections和arrays工具类">11.7 Collections和Arrays工具类</h2>
+<h3 id="1171-collections工具类">11.7.1 Collections工具类</h3>
 <p>集合框架中的工具类：特点：该工具类中的方法都是静态的。</p>
-<h3 id="1172-arrays工具类"><a href="#1172-arrays工具类" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1172-arrays工具类" class="headings">11.7.2 Arrays工具类</a></h3>
+<h3 id="1172-arrays工具类">11.7.2 Arrays工具类</h3>
 <p>用于对数组操作的工具类</p>
-<h2 id="118-遍历容器"><a href="#118-遍历容器" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:118-遍历容器" class="headings">11.8 遍历容器</a></h2>
-<h3 id="1181-list的遍历"><a href="#1181-list的遍历" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1181-list的遍历" class="headings">11.8.1 List的遍历</a></h3>
+<h2 id="118-遍历容器">11.8 遍历容器</h2>
+<h3 id="1181-list的遍历">11.8.1 List的遍历</h3>
 <ul>
 <li>List 接口中有按照索引取元素的方法</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">List</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="o">...;</span>
-<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++){</span>
-    <span class="n">E</span> <span class="n">item</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-    <span class="o">...</span>
-<span class="o">}</span>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List&lt;E&gt; list = ...;
+<span style="color:#8b008b;font-weight:bold">for</span>(<span style="color:#00688b;font-weight:bold">int</span> i = 0; i &lt; list.<span style="color:#658b00">size</span>(); i++){
+    E item = list.<span style="color:#658b00">get</span>(i);
+    ...
+}
 </code></pre></div><ul>
 <li>foreach 是java编译器提供的语法糖 , 它在处理实现了Iterable接口的类上使用Iterator进行迭代 , 对数组则使用简单for循环迭代</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;hello&#34;</span><span class="o">);</span>
-<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;world&#34;</span><span class="o">);</span>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List&lt;String&gt; list = <span style="color:#8b008b;font-weight:bold">new</span> ArrayList&lt;&gt;();
+list.<span style="color:#658b00">add</span>(<span style="color:#cd5555">&#34;hello&#34;</span>);
+list.<span style="color:#658b00">add</span>(<span style="color:#cd5555">&#34;world&#34;</span>);
 
-<span class="k">for</span><span class="o">(</span><span class="n">String</span> <span class="n">item</span><span class="o">:</span><span class="n">list</span><span class="o">){</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
-<span class="o">}</span>
+<span style="color:#8b008b;font-weight:bold">for</span>(String item:list){
+    System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(item);
+}
 </code></pre></div><ul>
 <li>Iterator迭代器</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;hello&#34;</span><span class="o">);</span>
-<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;world&#34;</span><span class="o">);</span>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List&lt;String&gt; list = <span style="color:#8b008b;font-weight:bold">new</span> ArrayList&lt;&gt;();
+list.<span style="color:#658b00">add</span>(<span style="color:#cd5555">&#34;hello&#34;</span>);
+list.<span style="color:#658b00">add</span>(<span style="color:#cd5555">&#34;world&#34;</span>);
 
-<span class="n">Iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
-<span class="k">while</span><span class="o">(</span><span class="n">it</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()){</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">it</span><span class="o">.</span><span class="na">next</span><span class="o">());</span>
-<span class="o">}</span>
-</code></pre></div><h3 id="1182-set的遍历"><a href="#1182-set的遍历" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1182-set的遍历" class="headings">11.8.2 Set的遍历</a></h3>
+Iterator it = list.<span style="color:#658b00">iterator</span>();
+<span style="color:#8b008b;font-weight:bold">while</span>(it.<span style="color:#658b00">hasNext</span>()){
+    System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(it.<span style="color:#658b00">next</span>());
+}
+</code></pre></div><h3 id="1182-set的遍历">11.8.2 Set的遍历</h3>
 <ol>
 <li>foreach</li>
 <li>Iterator迭代器</li>
 </ol>
 <p>这两个遍历方式本质上是一样的foreach语法糖会被编译为迭代器版本</p>
-<h3 id="1183-map的遍历"><a href="#1183-map的遍历" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1183-map的遍历" class="headings">11.8.3 Map的遍历</a></h3>
+<h3 id="1183-map的遍历">11.8.3 Map的遍历</h3>
 <ul>
 <li><strong>keySet</strong></li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;hello&#34;</span><span class="o">,</span> <span class="s">&#34;world&#34;</span><span class="o">);</span>
-<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;goodbye&#34;</span><span class="o">,</span> <span class="s">&#34;world&#34;</span><span class="o">);</span>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Map&lt;String, String&gt; map = <span style="color:#8b008b;font-weight:bold">new</span> HashMap&lt;&gt;();
+map.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;hello&#34;</span>, <span style="color:#cd5555">&#34;world&#34;</span>);
+map.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;goodbye&#34;</span>, <span style="color:#cd5555">&#34;world&#34;</span>);
 
-<span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">keySet</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">keySet</span><span class="o">();</span>
-<span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">key</span> <span class="o">:</span> <span class="n">keySet</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&#34;key=%s,value=%s%n&#34;</span><span class="o">,</span> <span class="n">key</span><span class="o">,</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">));</span>
-<span class="o">}</span>
+Set&lt;String&gt; keySet = map.<span style="color:#658b00">keySet</span>();
+<span style="color:#8b008b;font-weight:bold">for</span> (String key : keySet) {
+    System.<span style="color:#658b00">out</span>.<span style="color:#658b00">printf</span>(<span style="color:#cd5555">&#34;key=%s,value=%s%n&#34;</span>, key, map.<span style="color:#658b00">get</span>(key));
+}
 </code></pre></div><ul>
 <li><strong>entrySet</strong></li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;hello&#34;</span><span class="o">,</span> <span class="s">&#34;world&#34;</span><span class="o">);</span>
-<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;goodbye&#34;</span><span class="o">,</span> <span class="s">&#34;world&#34;</span><span class="o">);</span>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Map&lt;String, String&gt; map = <span style="color:#8b008b;font-weight:bold">new</span> HashMap&lt;&gt;();
+map.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;hello&#34;</span>, <span style="color:#cd5555">&#34;world&#34;</span>);
+map.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;goodbye&#34;</span>, <span style="color:#cd5555">&#34;world&#34;</span>);
 
-<span class="n">Set</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;&gt;</span> <span class="n">entrySet</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">entrySet</span><span class="o">();</span>
+Set&lt;Map.<span style="color:#658b00">Entry</span>&lt;String, String&gt;&gt; entrySet = map.<span style="color:#658b00">entrySet</span>();
 
-<span class="k">for</span> <span class="o">(</span><span class="n">Map</span><span class="o">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">entry</span> <span class="o">:</span> <span class="n">entrySet</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&#34;key=%s,value=%s%n&#34;</span><span class="o">,</span><span class="n">entry</span><span class="o">.</span><span class="na">getKey</span><span class="o">(),</span><span class="n">entry</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span>
-<span class="o">}</span>
-</code></pre></div><h2 id="119-javautilconcurrent包"><a href="#119-javautilconcurrent包" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:119-javautilconcurrent包" class="headings">11.9 java.util.concurrent包</a></h2>
+<span style="color:#8b008b;font-weight:bold">for</span> (Map.<span style="color:#658b00">Entry</span>&lt;String, String&gt; entry : entrySet) {
+    System.<span style="color:#658b00">out</span>.<span style="color:#658b00">printf</span>(<span style="color:#cd5555">&#34;key=%s,value=%s%n&#34;</span>,entry.<span style="color:#658b00">getKey</span>(),entry.<span style="color:#658b00">getValue</span>());
+}
+</code></pre></div><h2 id="119-javautilconcurrent包">11.9 java.util.concurrent包</h2>
 <p>J. U. C并发包，即java.util.concurrent包，是JDK的核心工具包，是JDK1.5之后，由 Doug Lea实现并引入。</p>
 <p>整个java.util.concurrent包，按照功能可以大致划分如下：</p>
 <ul>
@@ -786,250 +2510,158 @@
 </ul>
 <p>其中juc-collections包含了许多在多线程框架下常用的集合类</p>
 <blockquote>
-<p>[info] <strong>详见</strong><a href="https://segmentfault.com/a/1190000015558984" target="_blank" rel="noopener">java多线程进阶</a></p>
-<p><strong>扩展</strong><a href="https://sourceforge.net/projects/javaconcurrenta/" target="_blank" rel="noopener">跟着动画学多线程</a></p>
+<p>[info] <strong>详见</strong><a href="https://segmentfault.com/a/1190000015558984">java多线程进阶</a></p>
+<p><strong>扩展</strong><a href="https://sourceforge.net/projects/javaconcurrenta/">跟着动画学多线程</a></p>
 </blockquote>
 
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">最后修改于 2019-08-15</p>
+                    
+                </div>
             </div>
+            
+            
+            <nav class="post-pagination">
 
-            
-    
-    
-        <ul class="post-copyright">
-            <li class="copyright-item author"><span class="copyright-item-text">作者</span>：<a href="https://io-oi.me/" class="p-author h-card" target="_blank" rel="noopener">jianse</a></li>
-            
+                
+                <a class="newer-posts" href="https://jianse.gitee.io/note/posts/java/chapter_12/">
+			下回<br>[Java笔记]第十二章 流与文件
+                </a>
                 
                 
                 
+                <a class="older-posts" href="https://jianse.gitee.io/note/posts/java/chapter_10/">
+			上回<br>[Java笔记]第十章 泛型程序设计
+                </a>
                 
-                <li class="copyright-item link"><span class="copyright-item-text">链接</span>：<a href="/note/posts/java/chapter_11/" target="_blank" rel="noopener">https://jianse.gitee.io/note/posts/java/chapter_11/</a></li>
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div><div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://amazingrise.net">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+</div>
+            </div>
+    <script>
+let app;
+
+app = new Vue({
+    el: '#app',
+    data: {
+        scrollY: 0,
+        navOpacity: 0,
+        isDrawerOpen: false,
+        mounted: false,
+        isDarkMode: false
+    },
+    methods: {
+            sgn(t, x) {
+                let k = 1. / (1. - 2 * t);
+                if (x <= t) return 0;
+                else if (x >= 1 - t) return 1;
+                else {
+                    return k * (x - t);
+                }
+            },
+            handleScroll() {
+                this.scrollY = window.scrollY;
+                this.navOpacity = this.sgn(.0, Math.min(1, Math.max(0, window.scrollY / (this.pageHeadHeight() - this.navBarHeight() * 0.8))));
+                const {navBar, navBackground, navTitle, extraContainer, streamContainer} = this.$refs;
+
+                if (this.navOpacity >= 1) {
+                    navBackground.style.opacity = 1;
+                    navTitle.style.opacity = 1;
+                } else {
+                    navBackground.style.opacity = 0;
+                    navTitle.style.opacity = 0;
+                }
+            },
+            handleResize() {
+                const {navBar, navBackground, navTitle, extraContainer, streamContainer} = this.$refs;
+                extraContainer.style.left = (streamContainer.offsetWidth - extraContainer.offsetWidth) + 'px';
+            },
+            navBarHeight() {
+                return this.$refs.navBar.offsetHeight;
+            },
+            pageHeadHeight() {
+                return this.$refs.pageHead.offsetHeight;
+            },
+            toggleDrawer() {
+                this.isDrawerOpen = !this.isDrawerOpen;
+                document.getElementsByTagName('html')[0].style.overflow = this.isDrawerOpen ? 'hidden' : 'unset';
+            },
+            closeDrawer() {
+                this.isDrawerOpen = false;
+                document.getElementsByTagName('html')[0].style.overflow = this.isDrawerOpen ? 'hidden' : 'unset';
+            },
+            toggleDarkMode() {
+                this.isDarkMode = !this.isDarkMode;
+                if (this.isDarkMode==true){
+                    document.cookie = "night=1;path=/";
+                    document.body.classList.add("night");
+                } else {
+                    document.cookie = "night=0;path=/";
+                    document.body.classList.remove("night");
+                }
+            }
+    },
+    created() {
+        window.addEventListener('scroll', this.handleScroll);
+        window.addEventListener('resize', this.handleResize);
+        window._nonDesktop = function () {
+            let check = false;
+            (function (a) {
+                if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4))) check = true;
+            })(navigator.userAgent || navigator.vendor || window.opera);
+            return check;
+        };
+        
+        var night = document.cookie.replace(/(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+        if (night==""){
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                
+            }
+        }else{
             
-            <li class="copyright-item license"><span class="copyright-item-text">许可</span>：<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></li>
-            
-        </ul>
-    
-
-
-
-        </article>
+            if (night=="1") {
+                this.toggleDarkMode();
+            }
+        }
+    },
+    mounted() {
+        this.handleScroll();
+        this.handleResize();
+        this.mounted = true;
 
         
-
-        
-    <div class="updated-badge-container">
-        <span title="Updated @ 2020-12-22 17:19:15 CST" style="cursor:help">
-
-<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2020-12-22</text><text x="915" y="140" textLength="650" transform="scale(.1)">2020-12-22</text></g></svg>
-        </span></div>
-
-
-
-        
-
-
-        <div class="post-share">
-
-        
-
-        <div class="share-items">
-
-            
-
-            
-
-            
-
-            
-
-            
-                <div class="share-item weibo">
-                    
-                    <a href="https://service.weibo.com/share/share.php?&amp;url=https://jianse.gitee.io/note/posts/java/chapter_11/&amp;title=[Java%e7%ac%94%e8%ae%b0]%e7%ac%ac%e5%8d%81%e4%b8%80%e7%ab%a0%20%e9%9b%86%e5%90%88%e6%a1%86%e6%9e%b6&amp;pic=https://s2.ax1x.com/2019/08/16/mZ0zgU.png&amp;searchPic=false" title="分享到「新浪微博」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon weibo-icon"><path d="M407 177.6c7.6-24-13.4-46.8-37.4-41.7-22 4.8-28.8-28.1-7.1-32.8 50.1-10.9 92.3 37.1 76.5 84.8-6.8 21.2-38.8 10.8-32-10.3zM214.8 446.7C108.5 446.7 0 395.3 0 310.4c0-44.3 28-95.4 76.3-143.7C176 67 279.5 65.8 249.9 161c-4 13.1 12.3 5.7 12.3 6 79.5-33.6 140.5-16.8 114 51.4-3.7 9.4 1.1 10.9 8.3 13.1 135.7 42.3 34.8 215.2-169.7 215.2zm143.7-146.3c-5.4-55.7-78.5-94-163.4-85.7-84.8 8.6-148.8 60.3-143.4 116s78.5 94 163.4 85.7c84.8-8.6 148.8-60.3 143.4-116zM347.9 35.1c-25.9 5.6-16.8 43.7 8.3 38.3 72.3-15.2 134.8 52.8 111.7 124-7.4 24.2 29.1 37 37.4 12 31.9-99.8-55.1-195.9-157.4-174.3zm-78.5 311c-17.1 38.8-66.8 60-109.1 46.3-40.8-13.1-58-53.4-40.3-89.7 17.7-35.4 63.1-55.4 103.4-45.1 42 10.8 63.1 50.2 46 88.5zm-86.3-30c-12.9-5.4-30 .3-38 12.9-8.3 12.9-4.3 28 8.6 34 13.1 6 30.8.3 39.1-12.9 8-13.1 3.7-28.3-9.7-34zm32.6-13.4c-5.1-1.7-11.4.6-14.3 5.4-2.9 5.1-1.4 10.6 3.7 12.9 5.1 2 11.7-.3 14.6-5.4 2.8-5.2 1.1-10.9-4-12.9z"/></svg></a>
-                </div>
-            
-
-            
-                <div class="share-item douban">
-                    
-                    <a href="https://www.douban.com/share/service?href=https://jianse.gitee.io/note/posts/java/chapter_11/&amp;name=[Java%e7%ac%94%e8%ae%b0]%e7%ac%ac%e5%8d%81%e4%b8%80%e7%ab%a0%20%e9%9b%86%e5%90%88%e6%a1%86%e6%9e%b6&amp;text=%e7%ac%ac%e5%8d%81%e4%b8%80%e7%ab%a0%20%e9%9b%86%e5%90%88%e6%a1%86%e6%9e%b6%20%e5%83%8fC&#43;&#43;%e7%9a%84STL%e4%b8%80%e6%a0%b7,%20java%e4%b9%9f%e6%9c%89%e6%8f%90%e4%be%9b%e7%bb%99%e6%88%91%e4%bb%ac%e7%9a%84%e5%ae%b9%e5%99%a8.%20%e5%ae%83%e5%ad%98%e6%94%be%e5%9c%a8java%e2%80%a6%e2%80%a6" title="分享到「豆瓣」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon douban-icon"><path d="M.643.92v2.412h22.714V.92H.643zm1.974 4.926v9.42h18.764v-9.42H2.617zm2.72 2.408H18.69v4.605H5.338V8.254zm1.657 7.412l-2.512.938c1.037 1.461 1.87 2.825 2.512 4.091H0v2.385h24v-2.385h-6.678c.818-1.176 1.589-2.543 2.303-4.091l-2.73-.938a29.952 29.952 0 01-2.479 5.03h-4.75c-.786-1.962-1.677-3.641-2.672-5.03Z"/></svg></a>
-                </div>
-            
-
-            
-                <div class="share-item qq">
-                    
-                    <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://jianse.gitee.io/note/posts/java/chapter_11/&amp;title=[Java%e7%ac%94%e8%ae%b0]%e7%ac%ac%e5%8d%81%e4%b8%80%e7%ab%a0%20%e9%9b%86%e5%90%88%e6%a1%86%e6%9e%b6&amp;summary=%e7%ac%ac%e5%8d%81%e4%b8%80%e7%ab%a0%20%e9%9b%86%e5%90%88%e6%a1%86%e6%9e%b6%20%e5%83%8fC&#43;&#43;%e7%9a%84STL%e4%b8%80%e6%a0%b7,%20java%e4%b9%9f%e6%9c%89%e6%8f%90%e4%be%9b%e7%bb%99%e6%88%91%e4%bb%ac%e7%9a%84%e5%ae%b9%e5%99%a8.%20%e5%ae%83%e5%ad%98%e6%94%be%e5%9c%a8java%e2%80%a6%e2%80%a6&amp;pics=https://s2.ax1x.com/2019/08/16/mZ0zgU.png&amp;site=Hugo%20%e4%b8%bb%e9%a2%98%20MemE" title="分享到「QQ」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qq-icon"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg></a>
-                </div>
-            
-
-            
-                <div class="share-item qzone">
-                    
-                    <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://jianse.gitee.io/note/posts/java/chapter_11/&amp;title=[Java%e7%ac%94%e8%ae%b0]%e7%ac%ac%e5%8d%81%e4%b8%80%e7%ab%a0%20%e9%9b%86%e5%90%88%e6%a1%86%e6%9e%b6&amp;summary=%e7%ac%ac%e5%8d%81%e4%b8%80%e7%ab%a0%20%e9%9b%86%e5%90%88%e6%a1%86%e6%9e%b6%20%e5%83%8fC&#43;&#43;%e7%9a%84STL%e4%b8%80%e6%a0%b7,%20java%e4%b9%9f%e6%9c%89%e6%8f%90%e4%be%9b%e7%bb%99%e6%88%91%e4%bb%ac%e7%9a%84%e5%ae%b9%e5%99%a8.%20%e5%ae%83%e5%ad%98%e6%94%be%e5%9c%a8java%e2%80%a6%e2%80%a6&amp;pics=https://s2.ax1x.com/2019/08/16/mZ0zgU.png&amp;site=Hugo%20%e4%b8%bb%e9%a2%98%20MemE" title="分享到「QQ 空间」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon qzone-icon"><path d="M23.985 9.202c-.032-.099-.127-.223-.334-.258-.207-.036-7.351-1.406-7.351-1.406s-.105-.022-.198-.07c-.092-.047-.127-.167-.127-.167S12.447.956 12.349.77C12.25.583 12.104.532 12 .532c-.104 0-.251.051-.349.238-.098.186-3.626 6.531-3.626 6.531s-.035.12-.128.167c-.092.047-.197.07-.197.07S.556 8.908.348 8.943c-.208.036-.302.16-.333.258a.477.477 0 0 0 .125.449l5.362 5.49s.072.08.119.172c.016.104.005.21.005.21s-1.189 7.242-1.22 7.45.075.369.159.43c.083.062.233.106.421.013.189-.093 6.812-3.261 6.812-3.261s.098-.044.201-.061c.103-.017.201.061.201.061s6.623 3.168 6.812 3.261c.188.094.338.049.421-.013a.463.463 0 0 0 .159-.43c-.021-.14-.93-5.677-.93-5.677.876-.54 1.425-1.039 1.849-1.747-2.594.969-6.006 1.717-9.415 1.866-.915.041-2.41.097-3.473-.015-.678-.071-1.17-.144-1.243-.438-.053-.215.054-.46.545-.831a2640.5 2640.5 0 0 1 2.861-2.155c1.285-.968 3.559-2.47 3.559-2.731 0-.285-2.144-.781-4.037-.781-1.945 0-2.275.132-2.811.168-.488.034-.769.005-.804-.138-.06-.248.183-.389.588-.568.709-.314 1.86-.594 1.984-.626.194-.052 3.082-.805 5.618-.535 1.318.14 3.244.668 3.244 1.276 0 .342-1.721 1.494-3.225 2.597-1.149.843-2.217 1.561-2.217 1.688 0 .342 3.533 1.241 6.689 1.01l.003-.022c.048-.092.119-.172.119-.172l5.362-5.49a.477.477 0 0 0 .127-.449z"/></svg></a>
-                </div>
-            
-
-            
-                <div class="share-item qrcode">
-                    <div class="qrcode-container" title="通过「二维码」"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qrcode-icon"><path d="M0 224h192V32H0v192zM64 96h64v64H64V96zm192-64v192h192V32H256zm128 128h-64V96h64v64zM0 480h192V288H0v192zm64-128h64v64H64v-64zm352-64h32v128h-96v-32h-32v96h-64V288h96v32h64v-32zm0 160h32v32h-32v-32zm-64 0h32v32h-32v-32z"/></svg><div id="qrcode-img"></div>
-                    </div>
-                    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
-
-<script>
-    var typeNumber = 0;
-    var errorCorrectionLevel = 'L';
-    var qr = qrcode(typeNumber, errorCorrectionLevel);
-    qr.addData('https:\/\/jianse.gitee.io\/note\/posts\/java\/chapter_11\/');
-    qr.make();
-    document.getElementById('qrcode-img').innerHTML = qr.createImgTag();
+    },
+    destroyed() {
+        window.removeEventListener('scroll', this.handleScroll);
+        window.removeEventListener('resize', this.handleResize);
+    }
+});
 </script>
 
-                </div>
-            
-
-        </div>
-
-    </div>
-
-
-
-
-        
-    
-    
-        <div class="related-posts">
-            <h2 class="related-title">相关文章：<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon related-icon"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"/></svg></h2>
-            <ul class="related-list">
-                
-                    <li class="related-item">
-                        <a href="/note/posts/java/chapter_15/" class="related-link">[Java笔记]第十五章 反射机制</a>
-                    </li>
-                
-                    <li class="related-item">
-                        <a href="/note/posts/java/chapter_14/" class="related-link">[Java笔记]第十四章 网络编程</a>
-                    </li>
-                
-                    <li class="related-item">
-                        <a href="/note/posts/java/chapter_13/" class="related-link">[Java笔记]第十三章 并发</a>
-                    </li>
-                
-                    <li class="related-item">
-                        <a href="/note/posts/java/chapter_12/" class="related-link">[Java笔记]第十二章 流与文件</a>
-                    </li>
-                
-                    <li class="related-item">
-                        <a href="/note/posts/java/chapter_10/" class="related-link">[Java笔记]第十章 泛型程序设计</a>
-                    </li>
-                
-            </ul>
-        </div>
-    
-
-
-
-        
-    
-
-
-
-        
-
-
-        
-
-
-        
-    
-        
-        
-    
-    
-    
-    
-        <ul class="post-nav">
-            
-                <li class="post-nav-prev">
-                    <a href="/note/posts/java/chapter_12/" rel="prev">&lt; [Java笔记]第十二章 流与文件</a>
-                </li>
-            
-            
-                <li class="post-nav-next">
-                    <a href="/note/posts/java/chapter_10/" rel="next">[Java笔记]第十章 泛型程序设计 &gt;</a>
-                </li>
-            
-        </ul>
-    
-
-
-
-        
-
-
-    </div>
-</main>
-
-
-            
-    <div id="back-to-top" class="back-to-top">
-        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon arrow-up"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg></a>
-    </div>
-
-
-            
-    <footer id="footer" class="footer">
-        <div class="footer-inner">
-            <div class="site-info">©&nbsp;1969–2020&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;jianse</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
-
-            
-    
-        <ul class="socials"><li class="socials-item">
-                    <a href="/rss.xml" target="_blank" rel="external noopener" title="RSS"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon social-icon"><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/></svg></a>
-                </li><li class="socials-item">
-                    <a href="mailto:jianse@gmail.com" target="_blank" rel="external noopener" title="Email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon social-icon"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"/></svg></a>
-                </li><li class="socials-item">
-                    <a href="https://github.com/jianse" target="_blank" rel="external noopener" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon social-icon"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
-                </li><li class="socials-item">
-                    <a href="https://gitee.com/jianse" target="_blank" rel="external noopener" title="Gitee"><svg t="1608633167122" class="icon social-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="562" width="200" height="200"><path d="M512 1024C230.4 1024 0 793.6 0 512S230.4 0 512 0s512 230.4 512 512-230.4 512-512 512z m259.2-569.6H480c-12.8 0-25.6 12.8-25.6 25.6v64c0 12.8 12.8 25.6 25.6 25.6h176c12.8 0 25.6 12.8 25.6 25.6v12.8c0 41.6-35.2 76.8-76.8 76.8h-240c-12.8 0-25.6-12.8-25.6-25.6V416c0-41.6 35.2-76.8 76.8-76.8h355.2c12.8 0 25.6-12.8 25.6-25.6v-64c0-12.8-12.8-25.6-25.6-25.6H416c-105.6 0-188.8 86.4-188.8 188.8V768c0 12.8 12.8 25.6 25.6 25.6h374.4c92.8 0 169.6-76.8 169.6-169.6v-144c0-12.8-12.8-25.6-25.6-25.6z" p-id="563"></path></svg></a>
-                </li></ul>
-    
-
-
-
-            
-        </div>
-    </footer>
-
-
-        </div>
-        
-
-        
-
-
-
-
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
-
-<script>
-    mediumZoom(document.querySelectorAll('div.post-body img'), {
-        background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
-    })
-</script>
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js" type="module" defer></script>
-
-
-
-
-
-
-
+<script src="https://jianse.gitee.io/note//js/journal.js"></script>
     </body>
 </html>
