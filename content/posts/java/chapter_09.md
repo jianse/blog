@@ -221,6 +221,8 @@ false
 
 ### 9.2.1 不可变字符串
 
+查看String类的源代码可以发现，String类被`final`关键字修饰，所以String类是不可改变的。
+
 ### 9.2.2 可变字符串
 
 #### StringBuffer
