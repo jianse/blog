@@ -1,0 +1,3 @@
+[submodule "themes/diary"]
+	path = themes/diary
+	url = git@gitee.com:jianse/hugo-theme-diary.git
