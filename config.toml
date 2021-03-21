@@ -2,7 +2,7 @@ baseURL = "https://jianse.gitee.io/note/"
 DefaultContentLanguage = "zh" # Theme's display language, supports: en, fr, zh, zh-hant
 languageCode = "zh-cn"
 title = "Jianse's note"
-copyright = "This is a customized copyright."
+copyright = "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)"
 theme = "diary"
 # googleAnalytics = "UA-123-45"
 
