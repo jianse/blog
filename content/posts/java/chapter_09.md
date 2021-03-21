@@ -226,16 +226,93 @@ false
 ```java
 String a = "foo ";
 String b = "bar";
-String c = a + b;  
+String c = a + b;
+System.out.println(c);
 ```
 
 编译并反编译上面这段代码
 
+> 在java1.8与之后的版本之间编译生成的字节码存在细微的不同下面我们分别进行分析
+
+#### java1.8的字节码
+
+```text
+ 0: ldc           #2                  // String foo
+ 2: astore_0
+ 3: ldc           #3                  // String bar
+ 5: astore_1
+ 6: new           #4                  // class java/lang/StringBuilder
+ 9: dup
+10: invokespecial #5                  // Method java/lang/StringBuilder."<init>":()V
+13: aload_0
+14: invokevirtual #6                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+17: aload_1
+18: invokevirtual #6                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+21: invokevirtual #7                  // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+24: astore_2
+25: getstatic     #8                  // Field java/lang/System.out:Ljava/io/PrintStream;
+28: aload_2
+29: invokevirtual #9                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+32: getstatic     #8                  // Field java/lang/System.out:Ljava/io/PrintStream;
+35: ldc           #10                 // String foo bar
+37: invokevirtual #9                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+40: return
+```
+
+从上面字节码中我们可以得到以下信息
+
+1. 程序中给出的字符串字面量是储存在常量池中的，这也是String类不可变的原因之一。
+2. 在进行字符串拼接时，编译器创建了一个`StringBuilder`类的对像，并调用该对像的`append`方法将两个String对象拼接在了一起，之后再调用`toString`方法将`StringBuilder`对象转换成`String`对象。所以在字符串拼接时产生了新的字符串对象，并没有在之前的对象之上拼接。
+3. 在程序中直接拼接两个字符串字面量的代码会被优化为一个字符串字面量。（如上反编译代码标号35处）
+
+#### java11的字节码
+
+```text
+ 0: ldc           #2                  // String foo
+ 2: astore_0
+ 3: ldc           #3                  // String bar
+ 5: astore_1
+ 6: aload_0
+ 7: aload_1
+ 8: invokedynamic #4,  0              // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+13: astore_2
+14: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+17: aload_2
+18: invokevirtual #6                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+21: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+24: ldc           #7                  // String foo bar
+26: invokevirtual #6                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+29: return
+```
+
+上面代码由javac11.0.10编译并反编译。相较于java8的版本区别只有在两个字符串变量拼接时并不是直接用StringBuilder进行，而是使用`InvokeDynamic`指令调用了`makeConcatWithConstants`方法。
+
+这里的`InvokeDynamic`指令是在Java7时引入的一个新的指令，这个指令可以让程序在运行时决定执行的是哪段代码，并在第一次执行后缓存执行国的指令，在之后直接执行缓存的指令。
+
+这里的`makeConcatWithConstants`方法被称`BootstrapMethod`引导方法,它返回一个`java.lang.invoke.CallSite`对象，通常叫做调用点，类似于C语言中的函数指针，指向真正执行操作的代码。在反编译的字节码中专门有一段名为`BootstrapMethods`的常量段，专门存放这些引导方法。
+
+在这个例子中的引导方法是`java.lang.invoke.StringConcatFactory.makeConcatWithConstants`，如下
+
+```text
+BootstrapMethods:
+  0: #21 REF_invokeStatic java/lang/invoke/StringConcatFactory.makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+```
+
 ### 9.2.2 可变字符串
+
+上面的字符串拼接中我们接触到了一个类`StringBuilder`这个类可以对字符串进行在原对象上的改变，所以它属于可变的字符串，类似的类还有`StringBuffer`，下面来认识一下它们。
 
 #### StringBuffer
 
+StringBuffer类是java1.0时引入的，这是一个线程安全的可变字符序列。它的内容可以用特定的方法在当前对象上直接改变而不用创建新的对象。同时线程安全允许它在多个线程的环境下使用。
+
+具体接口参考[java11文档-StringBuffer](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/StringBuffer.html)
+
 #### StringBuilder
+
+StringBuilder是在java1.5时引入的，相比与StringBuffer，StringBuilder不是线程安全的，所以它的速度要比StringBuffer快。不是线程安全意味着它只能在单线程环境下使用。
+
+具体接口参考[java11文档-StringBuilder](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/StringBuilder.html)
 
 ## 9.3 Scanner类
 
