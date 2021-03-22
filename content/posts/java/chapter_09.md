@@ -316,6 +316,41 @@ StringBuilder是在java1.5时引入的，相比与StringBuffer，StringBuilder�
 
 ## 9.3 Scanner类
 
+Scanner类是一个帮助我们读取数据的类，可以从多读取流、文件和通道等。同时Scanner类也提供了许多读取的方式，如读取一行，读取特定类型的数据，按正则表达式匹配等方式进行数据的输入。
+
+下面用一个小例子演示使用Scanner类来读取控制台输入，做一个小的交互式程序
+
+```java
+package cn.ntboy.ch9;
+import java.util.Scanner;
+
+public class ScannerTest{
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("What's your name?");
+        String line = scanner.nextLine();
+        System.out.println("Hello " + line + "!");
+
+        System.out.println("How old are you?");
+        int age = scanner.nextInt();
+        System.out.println("Your age is " + age + ".");
+    }
+}
+```
+
+编译并运行
+
+```bash
+javac cn/ntboy/ch9/ScannerTest.java
+java cn.ntboy.ch9.ScannerTest
+```
+
+运行上面的程序就可以和计算机你一言我一语的交谈了。
+
+同时Scanner类也不限于只从标准输入流(`System.in`)读取数据，我们可以查看[Scanner类的文档](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Scanner.html)，构造函数那一节。可以看到Scanner类可以由文件、输入流、字符串、字节通道、文件路径和实现了`Readable`接口的类来初始化。
+
+Scanner类使用了装饰器模式，扩展了原本的输入流等的功能，但其核心功能——从数据元中获得数据并未改变而是得到了增强。
+
 ## 9.4 java.lang.Math类
 
 这个类包含了一些基础的数学运算，包括幂运算，对数运算，求根运算，三角函数等。
