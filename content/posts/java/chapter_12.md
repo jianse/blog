@@ -204,7 +204,7 @@ BufferedInputStream bin = new BufferedInputStream(in);
 
 ### 12.7.2 适配器模式
 
-ByteArrayInputStream是一个适配器类 。ByteArrayInputStream继承了InputStream的接口，而封装了一个byte数组。换而言之，它将一个byte数组的接口适配成了InputStream流处理器的接口。 java语言支持四种类型：java类、java接口、java数组和原始类型。前三章是引用类型，类和数组的实例都是对象，原始类型的值不少对象。 java语言的数组是像所有其他对象一样的对象，而不管数组中所存放的元素的类型是什么。这样一来，ByteArrayInputStream就符合适配 器模式的描述，而且是一个对象形式的适配器类。
+ByteArrayInputStream是一个适配器类 。ByteArrayInputStream继承了InputStream的接口，而封装了一个byte数组。换而言之，它将一个byte数组的接口适配成了InputStream流处理器的接口。 java语言支持四种类型：java类、java接口、java数组和原始类型。前三章是引用类型，类和数组的实例都是对象，原始类型的值不是对象。 java语言的数组是像所有其他对象一样的对象，而不管数组中所存放的元素的类型是什么。这样一来，ByteArrayInputStream就符合适配器模式的描述，而且是一个对象形式的适配器类。
 
 !>详见 [适配器模式|菜鸟教程](https://www.runoob.com/design-pattern/adapter-pattern.html)
 
