@@ -115,7 +115,7 @@ File是java.io包下面的一个类，代表与平台无关的文件或者目录
 
 JVM默认会将workspace作为相对路径，即user.dir系统变量所指路径, 即如果这样初始化file对象，File file = new File("."); 就是获取了user.dir路径。
 
-> **java 1.7 引入了新的文件工具类[java.nio.file包](#jnf-package)用来代替旧的File类**
+> **java 1.7 引入了新的文件工具类[java.nio.file包](#128-javanio包)用来代替旧的File类**
 
 ### 12.5.1 File
 
@@ -200,13 +200,13 @@ BufferedInputStream bin = new BufferedInputStream(in);
 
 这样FileInputStream就被装饰了起来, 从而增加了缓冲的功能 .
 
-!> 详见 [装饰器模式|菜鸟教程](https://www.runoob.com/design-pattern/decorator-pattern.html)
+> [info] 详见 [装饰器模式|菜鸟教程](https://www.runoob.com/design-pattern/decorator-pattern.html)
 
 ### 12.7.2 适配器模式
 
 ByteArrayInputStream是一个适配器类 。ByteArrayInputStream继承了InputStream的接口，而封装了一个byte数组。换而言之，它将一个byte数组的接口适配成了InputStream流处理器的接口。 java语言支持四种类型：java类、java接口、java数组和原始类型。前三章是引用类型，类和数组的实例都是对象，原始类型的值不是对象。 java语言的数组是像所有其他对象一样的对象，而不管数组中所存放的元素的类型是什么。这样一来，ByteArrayInputStream就符合适配器模式的描述，而且是一个对象形式的适配器类。
 
-!>详见 [适配器模式|菜鸟教程](https://www.runoob.com/design-pattern/adapter-pattern.html)
+> [info] 详见 [适配器模式|菜鸟教程](https://www.runoob.com/design-pattern/adapter-pattern.html)
 
 ## 12.8 java.nio包
 
@@ -228,7 +228,7 @@ Java NIO引入了选择器的概念，选择器用于监听多个通道的事件
 >
 >上面文档后 3 节有待翻译 , 可以参考[java NIO教程 - 简书](https://www.jianshu.com/p/465ecd909f8c)互相补充查看
 
-### 12.8.1 java.nio.file包 :id=jnf-package
+### 12.8.1 java.nio.file包
 
 这个包定义了Java虚拟机的接口和类，以访问文件，文件属性和文件系统。用来代替java.io. File类.
 
