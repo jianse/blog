@@ -30,6 +30,9 @@ description = "My HomePage Description"  # will set 'og:description'
 
 enableBlockquoteEnhance = true
 enableCodeLangTag = true
+enableAutoDarkMode = true
+enableMathJax = true
+enableMediumZoom = true
 
 [params.gitalk]
   owner = "user"
