@@ -21,9 +21,21 @@ java起源于sun公司的嵌入式项目
 
 ## 1.2 java的特性
 
-1. 面向对象
-2. 健壮性
-3. 跨平台性
+1. 简单性
+2. 面向对象
+3. 健壮性
+4. 跨平台性
+5. 支持网络
+6. 多线程
+7. 动态性
+8. 高性能
+
+### 1.2.1 简单性
+
+Java的语法与C/C++比较一致，如果你以前接触过C/C++你上手Java并不会很难。同时Java屏蔽了与底层强相关的实现细节包括头文件、指针、结构体、虚函数、运算符重载、多继承等特性。使你使用Java进行编程时不必太过关注计算机的硬件环境。同时Java提供了一个很全面的标准库，可以很方便的使用标准库中已经实现的工具与数据结构。
+
+### 1.2.2 面向对象
+
 
 ## 1.3 JDK、JRE、JVM
 
@@ -233,7 +245,7 @@ JVM(Java Virtual Machine)Java虚拟机，是一个抽象的虚拟计算机，是
 
 ### JAVA 12
 
-* 发行时间：2018-09-25
+* 发行时间：2019-03
 * 引入特性：
   - 189: Shenandoah: A Low-Pause-Time Garbage Collector (Experimental) ：新增一个名为 Shenandoah 的垃圾回收器，它通过在 Java 线程运行的同时进行疏散 (evacuation) 工作来减少停顿时间。
   - 230: Microbenchmark Suite：新增一套微基准测试，使开发者能够基于现有的 Java Microbenchmark Harness（JMH）轻松测试 JDK 的性能，并创建新的基准测试。

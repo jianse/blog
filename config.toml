@@ -6,6 +6,9 @@ copyright = "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0
 theme = "diary"
 # googleAnalytics = "UA-123-45"
 
+# enable git info to make lastMod work properly
+enableGitInfo = true
+
 [markup]
   [markup.highlight]
     codeFences = true
@@ -33,6 +36,8 @@ enableCodeLangTag = true
 enableAutoDarkMode = true
 enableMathJax = true
 enableMediumZoom = true
+
+enableReadingTime = true
 
 [params.gitalk]
   owner = "user"
