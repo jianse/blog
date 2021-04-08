@@ -29,6 +29,7 @@ title = "My Blog" # will set 'og:site_name'
 description = "My HomePage Description"  # will set 'og:description'
 
 enableBlockquoteEnhance = true
+enableCodeLangTag = true
 
 [params.gitalk]
   owner = "user"
