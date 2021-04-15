@@ -96,12 +96,14 @@ JVM(Java Virtual Machine)Java虚拟机，是一个抽象的虚拟计算机，是
 
 ## 1.4 Java各版本及特性
 
+Java的版本迭代从1.1到1.4和j2se 5.0、java se 6是由sun公司维护发布的这时的java基本上是每两年发布一个大版本。这之中java几经改名由最初的`jdk 1.0`这样的小版本号，到`j2se 1.2`、`j2se 1.3`、`j2se 1.4`其中j2se(java to stander edition)表示的是java的标准版本。再到`j2se 5.0`将小版本号换为大版本号。再到`Java se 6`去掉了版本号后面的`.0`。2009年sun公司被Oracle公司收购，Java的升级维护工作就转交到Oracle手中。Oracle发布了`java se 7`和`java se 8`之后将Java的许可证进行了变更，同时修改了Java的发布周期。`java se 8`成为了许可证变更前的最后一个lts版本（长期支持版）。从`java se 9`开始java每半年发布一个新的版本，每三年发布一个lts版本，java8之后的第一个lts版本是java11。
+
 ### JDK 1.0
 
 * 开发代号：Oak
 * 发行时间：1996-01-23
 
-初代版本，伟大的一个里程碑，但是是纯解释运行，使用外挂JIT，性能比较差，运行速度慢。
+初代版本，一个伟大的里程碑，但是是纯解释运行，使用外挂JIT，性能比较差，运行速度慢。
 
 ### JDK 1.1
 
