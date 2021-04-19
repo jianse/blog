@@ -72,3 +72,6 @@ weight = 4
 url = "/index.xml"
 name = "RSS"
 weight = 5
+
+[minify]
+  minifyOutput = true
