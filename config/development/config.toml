@@ -75,4 +75,4 @@ name = "RSS"
 weight = 5
 
 [minify]
-  minifyOutput = true
+  minifyOutput = false
