@@ -46,7 +46,7 @@ Vector是java 1.0 版本时就引入的集合实现类, 它实现了一个可以
 
 Vector是线程安全的, 所以Vector可以在多线程场景下安全的使用, 但也因为线程安全使其效率有所限制
 
-如果不需要线程安全的使用可伸缩的数组可以使用[ArrayList](#arraylist)
+如果不需要线程安全的使用可伸缩的数组可以使用[ArrayList](#1124-arraylist)
 
 ### 11.2.3 Stack
 
@@ -62,9 +62,9 @@ Stack类为自身提供独立的操作方法
 | `push(E item)` | 压栈 : 将元素压入栈顶  |
 | `search(Object o)` |  查询元素与栈顶的距离  |
 
-Stack也是java 1.0 时引入的 , java 1.2 时引入了[Deque](#deque)接口, Deque接口及其实现提供了更完整和一致的LIFO堆栈操作集，应优先使用此类。
+Stack也是java 1.0 时引入的 , java 1.2 时引入了[Deque](#1143-deque)接口, Deque接口及其实现提供了更完整和一致的LIFO堆栈操作集，应优先使用此类。
 
-### 11.2.4 ArrayList :id=arraylist
+### 11.2.4 ArrayList
 
 ArrayList顾名思义就是内部有数组实现的List, 它为我们封装了一系列数组操作, 让我们不必考虑增删改查时数组怎样变化, 数组如何扩展, 如何缩小, 然后向我们提供增删改查的接口.
 
@@ -80,7 +80,7 @@ LiskedList是List的链表实现, 链表解决了数组插入删除慢的缺点 
 
 LinkedList插入删除效率较高, 但是不能进行常数复杂度的随机访问, 所以适用于多增删, 少随机访问的使用场景.
 
-> [info] [LinkedList](#_1145-linkedlist) 同时也实现了Deque接口
+> [info] [LinkedList](#1145-linkedlist) 同时也实现了Deque接口
 
 ### 11.2.6 时间复杂度比较
 
@@ -102,17 +102,17 @@ Set是Collection接口下的另一支 , 代表了数学上的集合 , 元素是�
 
 ### 11.3.2 HashSet
 
-HashSet 是借助[HashMap](#_1152-hashmap) 实现的, 将要插入的值当作HashMap的键, 值是一个固定的Object对象, 因为HashMap的key不能重复所以HashSet的元素就不能重复 .
+HashSet 是借助[HashMap](#1152-hashmap) 实现的, 将要插入的值当作HashMap的键, 值是一个固定的Object对象, 因为HashMap的key不能重复所以HashSet的元素就不能重复 .
 
 ### 11.3.3 LinkedHashSet
 
-LinkedHashSet继承自HashSet , 源码更少、更简单 , 与HashMap唯一的区别是LinkedHashSet内部使用的是[LinkedHashMap](#_1153-linkedhashmap)。这样做的意义或者好处就是LinkedHashSet中的元素顺序是可以保证的 , 也就是说遍历序和插入序是一致的。
+LinkedHashSet继承自HashSet , 源码更少、更简单 , 与HashMap唯一的区别是LinkedHashSet内部使用的是[LinkedHashMap](#1153-linkedhashmap)。这样做的意义或者好处就是LinkedHashSet中的元素顺序是可以保证的 , 也就是说遍历序和插入序是一致的。
 
 ### 11.3.4 TreeSet
 
 TreeSet实现了NavigableSet接口 , 该接口定义了一些搜索目标的方法 , 并且该接口扩展了 SortedSet接口 , 所以TreeSet是一个可排序并且可以搜索的集合.
 
-TreeSet包装了一个TreeMap其中Set中的元素是[TreeMap](#_1154-treemap)的键, 而值是一个常量. 所有的方法都委托给了TreeMap
+TreeSet包装了一个TreeMap其中Set中的元素是[TreeMap](#1154-treemap)的键, 而值是一个常量. 所有的方法都委托给了TreeMap
 
 因为TreeSet要实现对元素的排序所以元素必须实现Comparable接口以便对元素进行比较.
 
@@ -147,7 +147,7 @@ Queue实现通常不允许插入 `null` 元素, 即使允许也不应该被插�
 
 > [warn] **此实现不是同步的** , PriorityQueue 如果任何线程修改队列，则多个线程不应同时访问实例。相反，使用线程安全PriorityBlockingQueue类。
 
-### 11.4.3 Deque :id=deque
+### 11.4.3 Deque
 
 Deque接口扩展了Queue接口提供了一个双端队列, 即既可以从队列的两端出入队的队列
 
@@ -224,7 +224,7 @@ ArrayDeque是一个可变大小的无界双端队列, 它的底层使用数组�
 
 ### 11.4.5 LinkedList
 
-上面提到了List接口下的[LinkedList](#_1125-linkedlist) , 现在我们要重新提起它 , 它同时实现了Deque 接口 , 这意味着它同时也是一个双端队列 , 并且LinkedList允许插入 `null` 值.
+上面提到了List接口下的[LinkedList](#1125-linkedlist) , 现在我们要重新提起它 , 它同时实现了Deque 接口 , 这意味着它同时也是一个双端队列 , 并且LinkedList允许插入 `null` 值.
 
 ## 11.5 Map
 
@@ -441,7 +441,7 @@ List<Student> students = new LinkedList<>();
 List<E> list = ...;
 for(int i = 0; i < list.size(); i++){
     E item = list.get(i);
-    ...
+    //...
 }
 ```
 
