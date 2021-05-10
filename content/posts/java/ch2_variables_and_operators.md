@@ -29,9 +29,11 @@ true false null
 
 * 用于控制流的关键字
 
-> if else switch case default
-> while do for break continue
-> return
+```text
+if else switch case default
+while do for break continue
+return
+```
 
 * 访问修饰符
 
@@ -374,7 +376,7 @@ a=(int)b;
 |   ^    | 按位进行异或运算 | 4 ^ 5  |   1   |                0100 ^ 0101 = 0001 = 1                 |
 |   ~    | 按位进行取反运算 |  ~ 4   |  -5   | ~ 0100 = 1111 1111 1111 1111 1111 1111 1111 1011 = -5 |
 
-!> **注意** 上边运算中均为32位int型整数 因为正整数前边均为0所以省略, 负数为反码 已给出32位
+> [warn] **注意** 上边运算中均为32位int型整数 因为正整数前边均为0所以省略, 负数为反码 已给出32位
 
 #### 位移运算符
 
@@ -432,14 +434,27 @@ a=(int)b;
 
 ### 2.7.7 类型比较运算符
 
-`instanceof` 判断对象是否是某个类的对象
+`instanceof` 判断对象是否是某个类的对象，或实现了某个接口。
+
+```java
+Integer a = 1;
+System.out.println(a instanceof Integer);
+// true
+System.out.println(a instanceof Number);
+// true
+System.out.println(a instanceof Comparable);
+// true
+System.out.println(a instanceof Double);
+// false
+```
+> [info] `instanceof`运算符只能判断对象，不能判断基础数据类型
 
 ### 2.7.8 运算符优先级
 
 | 优先级 |                       运算符                       |  结合性  |
 | :----: | :------------------------------------------------: | :------: |
 |   1    |                       () []                        | 从左向右 |
-|   2    |                 !、+、-、~、++、--                 | 从右向左 |
+|   2    |                 !、+、-、~、++、-\-                 | 从右向左 |
 |   3    |                      *、/、%                       | 从左向右 |
 |   4    |                        +、-                        | 从左向右 |
 |   5    |                     «、»、>>>                      | 从左向右 |
@@ -453,3 +468,6 @@ a=(int)b;
 |   13   |                         ?:                         | 从右向左 |
 |   14   | =、+=、-=、*=、/=、&=、\|=、^=、~=、<<=、>>=、>>>= | 从右向左 |
 
+> [info] **优先级**指的是先后顺序，例如先算乘除后算加减，就意味着乘除法的优先级比加减高。
+>
+> **结合性**指的是遇到优先级相同的运算符时，结合性指明了表达式应从左向右运算还是从右向左运算。
