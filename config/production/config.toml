@@ -20,6 +20,9 @@ enableGitInfo = true
     noClasses = true
     style = "monokai"
     tabWidth = 4
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
 [params]
 subtitle = "1.01*365"
@@ -38,6 +41,7 @@ enableMathJax = true
 enableMediumZoom = true
 
 enableReadingTime = true
+openLinkInNewTab = true
 
 [params.gitalk]
   owner = "user"
@@ -75,3 +79,5 @@ weight = 5
 
 [minify]
   minifyOutput = true
+  [minify.tdewolff.html]
+    keepQuotes = true

@@ -20,6 +20,11 @@ enableGitInfo = true
     noClasses = true
     style = "monokai"
     tabWidth = 4
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    startLevel = 1
 
 [params]
 debug = true
@@ -39,6 +44,7 @@ enableMathJax = true
 enableMediumZoom = true
 
 enableReadingTime = true
+openLinkInNewTab = true
 
 [params.gitalk]
   owner = "user"
