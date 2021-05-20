@@ -8,6 +8,7 @@ theme = "diary"
 
 # enable git info to make lastMod work properly
 enableGitInfo = true
+hasCJKLanguage = true
 
 [markup]
   [markup.highlight]

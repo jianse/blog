@@ -1,6 +1,8 @@
 {
     "name": "Jianse's Note",
     "short_name": "note",
+    "start_url":"/note/index.html",
+    "description":"jianse‘s note",
     "icons": [
         {
             "src": "/note/android-chrome-192x192.png",
