@@ -1,7 +1,7 @@
 {
     "name": "Jianse's Note",
     "short_name": "note",
-    "start_url":"/note/index.html",
+    "start_url":"/note/",
     "description":"jianse‘s note",
     "icons": [
         {

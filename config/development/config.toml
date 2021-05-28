@@ -46,6 +46,8 @@ enableMediumZoom = true
 
 enableReadingTime = true
 openLinkInNewTab = true
+enableServiceWorker = true
+
 
 [params.gitalk]
   owner = "user"
