@@ -398,7 +398,7 @@ ArrayList<Student> students = new ArrayList<>();
 有一天你觉得ArrayList不好用决定改成LinkedList
 
 ``` java
-LinkedList<student> students = new LinkedList<>();
+LinkedList<Student> students = new LinkedList<>();
 ```
 
 这样以来，用到你的list的地方都得更改类型声明。更重要的是，用到你的list的人，他们写自己的代码的时候是基于“你的这个list是一个ArrayList ”这样的前提来写的，你突然把它改成了LinkedList，很可能导致他们的程序出错或者需要重写。
