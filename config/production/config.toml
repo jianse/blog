@@ -1,4 +1,4 @@
-baseURL = "https://jianse.gitee.io/note/"
+baseURL = "https://jianse.gitee.io/"
 DefaultContentLanguage = "zh" # Theme's display language, supports: en, fr, zh, zh-hant
 languageCode = "zh-cn"
 title = "Jianse's note"
