@@ -1,0 +1,19 @@
+{
+  "name": "note",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./build/build.sh&&node build/inject-sw.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/jianse/jianse.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "workbox-build": "^6.2.4"
+  }
+}
