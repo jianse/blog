@@ -5,6 +5,7 @@ draft: false
 categories:
     - "javase"
 toc: true
+featured_image: https://z3.ax1x.com/2021/08/25/hZbGod.jpg
 ---
 
 # 第一章 Java历史、特性与JDK的安装

@@ -10,6 +10,7 @@ theme = "diary"
 enableGitInfo = true
 hasCJKLanguage = true
 
+# show drafts in dev mode
 buildDrafts = true
 
 [markup]
@@ -48,7 +49,9 @@ enableMediumZoom = true
 
 enableReadingTime = true
 openLinkInNewTab = true
-enableServiceWorker = true
+
+# for content to quickly priview disable this
+enableServiceWorker = false
 
 
 [params.gitalk]

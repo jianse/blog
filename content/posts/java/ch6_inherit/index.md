@@ -149,21 +149,21 @@ public class Manager extends Employee {
 
 ![inherit_diagram](inherit_uml.svg)
 
-对比之下使用继承在这个例子中减少了`Manager`类的复杂度。在深入解读上面代码之前现让我们认识一些概念。
+对比之下使用继承在这个例子中减少了 `Manager` 类的复杂度。在深入解读上面代码之前现让我们认识一些概念。
 
 ## 6.1 类、超类、子类
 
 ### 6.1.1 类
 
-类的概念已经在上一章详细介绍过了，详细请看[第五章](/posts/java/ch5_class_and_instance)，上面的例子中涉及到了两个类`Employee`和`Manager`。
+类的概念已经在上一章详细介绍过了，详细请看[第五章](/posts/java/ch5_class_and_instance)，上面的例子中涉及到了两个类 `Employee` 和 `Manager` 。
 
 ### 6.1.2 超类
 
-在上面的例子中`Employee`类称为`Manager`类的超类，超类一般是继承关系中更为抽象、广泛、通用的一方。例如水果和苹果，水果是更为抽象的一方，作为苹果的超类。
+在上面的例子中 `Employee` 类称为 `Manager` 类的超类，超类一般是继承关系中更为抽象、广泛、通用的一方。例如水果和苹果，水果是更为抽象的一方，作为苹果的超类。
 
 ### 6.1.3 子类
 
-在上面的例子中`Manager`类称为`Employee`类的子类，子类是继承关系中更为具体的一方。例如猫和动物，猫就是动物的子类。
+在上面的例子中 `Manager` 类称为 `Employee` 类的子类，子类是继承关系中更为具体的一方。例如猫和动物，猫就是动物的子类。
 
 子类会继承超类的可见属性和方法。
 
@@ -179,13 +179,13 @@ public class Manager extends Employee{
 }
 ```
 
-指定了`Manger`继承自`Employee`
+指定了 `Manger` 继承自 `Employee`
 
 > [info] java中只能进行单继承，即一个子类只能有一个超类，不能有多个超类
 
 ### 6.1.5 方法覆盖
 
-上面的例子中新的`Manager`类的`getsalary`方法与`Employee`的`getsalary`方法有所不同。经理的月薪除了基本的月薪外，还应该加入奖金的部分。所以`Manager`类的`getsalary`方法需要对超类的相应方法进行覆盖。
+上面的例子中新的 `Manager` 类的 `getsalary` 方法与 `Employee` 的 `getsalary` 方法有所不同。经理的月薪除了基本的月薪外，还应该加入奖金的部分。所以 `Manager` 类的 `getsalary` 方法需要对超类的相应方法进行覆盖。
 
 ```java
 public float getsalary(){
@@ -195,11 +195,11 @@ public float getsalary(){
 
 ### 6.1.6 super关键字
 
-上面的方法中使用了`super`关键字，它的作用是告诉编译器使用超类的`getsalary`方法。
+上面的方法中使用了 `super` 关键字，它的作用是告诉编译器使用超类的 `getsalary` 方法。
 
-在上面的例子中子类中并没有`salary`属性，因为超类中的`salary`的访问修饰符是`private`。但同时超类提供了公共的`getsalary`方法，它通过继承使得我们当前的子类上也有了`getsalary`方法。一般的我们可以用`this.getsalary`进行调用。但是我们现在要覆盖子类的`getsalary`，如果要使用`self.getsalary`方法调用就会调用到我们重写的这个方法，形成递归调用。
+在上面的例子中子类中并没有 `salary` 属性，因为超类中的 `salary` 的访问修饰符是 `private` 。但同时超类提供了公共的 `getsalary` 方法，它通过继承使得我们当前的子类上也有了 `getsalary` 方法。一般的我们可以用 `this.getsalary` 进行调用。但是我们现在要覆盖子类的 `getsalary` ，如果要使用 `self.getsalary` 方法调用就会调用到我们重写的这个方法，形成递归调用。
 
-这不是我们要的结果，我们要的是调用超类的`getsalary`方法，这时我们就可以使用`super.getsalary`来达成这样的目的。
+这不是我们要的结果，我们要的是调用超类的 `getsalary` 方法，这时我们就可以使用 `super.getsalary` 来达成这样的目的。
 
 ### 6.1.7 多态
 
@@ -215,15 +215,15 @@ Employee manager = new Manager();
 
 ### 6.1.8 final 关键字
 
-`final`关键字暗示了被修饰的东西已经是最终形态，不能被改变了，它可以用在类上，如：
+`final` 关键字暗示了被修饰的东西已经是最终形态，不能被改变了，它可以用在类上，如：
 
 ```java
 public final class String
 ```
 
-String类被`final`修饰，表示其他的类不能继承`String`类。
+String类被 `final` 修饰，表示其他的类不能继承 `String` 类。
 
-也可以在方法上加上`final`关键字，如：
+也可以在方法上加上 `final` 关键字，如：
 
 ```java
 class Employee {
@@ -252,6 +252,12 @@ class Employee extends Object
 
 ### 6.2.1 equals方法
 
-`equals`方法用于检查一个对象是否和另一个对象相等
+`equals` 方法用于检查一个对象是否和另一个对象相等
 
-?__TODO__
+### 6.2.2 hashCode方法
+
+`hashCode` 散列码，将一个类映射到一个数值空间上，和摘要算法有些类似。
+
+### 6.2.3 toString方法
+
+`toString` 方法会在返回一个代表该类的字符串。
