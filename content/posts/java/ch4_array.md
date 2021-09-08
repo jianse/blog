@@ -1,9 +1,9 @@
 ---
-title: "[Java笔记]第四章 数组与数组操作"
+title: "第四章 数组与数组操作"
 date: 2019-07-23T12:19:59+08:00
 draft: false
-categories:
-    - "javase"
+categories: javase
+categories_weight: 4
 toc: true
 ---
 

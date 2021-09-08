@@ -1,9 +1,9 @@
 ---
-title: "[Java笔记]第一章 java历史、特性与JDK的安装"
+title: "第一章 java历史、特性与JDK的安装"
 date: 2019-07-15T12:19:59+08:00
 draft: false
-categories:
-    - "javase"
+categories: javase
+categories_weight: 1
 toc: true
 featured_image: https://z3.ax1x.com/2021/08/25/hZbGod.jpg
 ---

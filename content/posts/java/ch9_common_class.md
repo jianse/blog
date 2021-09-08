@@ -1,9 +1,9 @@
 ---
-title: "[Java笔记]第九章 常用类"
+title: "第九章 常用类"
 date: 2019-08-08T12:19:59+08:00
 draft: false
-categories:
-    - "javase"
+categories: javase
+categories_weight: 9
 tags: 
     - "java"
     - "javase"

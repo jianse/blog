@@ -1,9 +1,9 @@
 ---
-title: "[Java笔记]第五章 对象和类"
+title: "第五章 对象和类"
 date: 2019-07-25T12:19:59+08:00
 draft: false
-categories:
-    - "javase"
+categories: javase
+categories_weight: 5
 toc: true
 ---
 

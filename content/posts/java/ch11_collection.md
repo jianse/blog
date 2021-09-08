@@ -1,9 +1,9 @@
 ---
-title: "[Java笔记]第十一章 集合框架"
+title: "第十一章 集合框架"
 date: 2019-08-15T12:19:59+08:00
 draft: false
-categories:
-    - "javase"
+categories: javase
+categories_weight: 11
 toc: true
 ---
 

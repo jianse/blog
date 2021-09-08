@@ -1,9 +1,9 @@
 ---
-title: "[Java笔记]第十二章 流与文件"
+title: "第十二章 流与文件"
 date: 2019-08-20T12:19:59+08:00
 draft: false
-categories:
-    - "javase"
+categories: javase
+categories_weight: 12
 toc: true
 ---
 

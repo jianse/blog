@@ -1,9 +1,9 @@
 ---
-title: "[Java笔记]第三章 流程控制"
+title: "第三章 流程控制"
 date: 2019-07-20T12:19:59+08:00
 draft: false
-categories:
-    - "javase"
+categories: javase
+categories_weight: 3
 toc: true
 ---
 

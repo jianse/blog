@@ -1,9 +1,9 @@
 ---
-title: "[Java笔记]第二章 变量与运算符"
+title: "第二章 变量与运算符"
 date: 2019-07-19T12:19:59+08:00
 draft: false
-categories:
-    - "javase"
+categories: javase
+categories_weight: 2
 toc: true
 ---
 
@@ -447,6 +447,7 @@ System.out.println(a instanceof Comparable);
 System.out.println(a instanceof Double);
 // false
 ```
+
 > [info] `instanceof`运算符只能判断对象，不能判断基础数据类型
 
 ### 2.7.8 运算符优先级
