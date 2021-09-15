@@ -261,3 +261,87 @@ class Employee extends Object
 ### 6.2.3 toString方法
 
 `toString` 方法会在返回一个代表该类的字符串。
+
+## 6.3 抽象类
+
+### 6.3.1 什么是抽象类
+
+通俗的来讲抽象类就是一个不具体的类。随着继承层次的加深，子类越来越具体，而父类则越来越抽象。有时将一个父类设计得非常抽象，以至于它没有具体的实例，这样的类叫做抽象类。
+
+### 6.3.2 为什么要有抽象类
+
+让我们从一个示例出发
+
+现有一个父类 `Animal`
+
+```java
+public class Animal {
+    public void eat() {
+        System.out.println("动物进食");
+    }
+}
+```
+
+之后是 `Animal` 的子类 `Dog` 、 `Cat` 和 `Pig` , 并且都重写了 `eat` 方法
+
+```java
+public class Dog extends Animal {
+    public void eat() {
+        System.out.println("狗吃骨头");
+    }
+}
+```
+
+```java
+public class Cat extends Animal {
+    public void eat() {
+        System.out.println("猫吃鱼");
+    }
+}
+```
+
+```java
+public class Pig extends Animal {
+    public void eat() {
+        System.out.println("猪吃饲料");
+    }
+}
+```
+
+现在我们来探讨下面几个问题
+
+* Animal这个父类，有没有必要创建其具体实例？
+  + 没有必要，随着继承Animal这个父类被继承，Animal类的子类    变得越来越具体，而Animal这个父类则更一般，更通用。
+* Animal这个父类中定义的方法eat是不是必须的？
+  + 是必要的，因为所有Animal的子类都必须具备eat方法，并通过重写的方式来完成子类具体的实现。
+* Animal这个父类的eat方法的方法体是不是必须的？
+  + 不是必须的，我会想，能否在Animal中定义的eat方法不包含方法体而仅仅是个方法的声明，具体实现交给继承他的子类呢？
+
+### 6.3.3 应用实例
+
+经过上面的讨论，得到结论：Animal这个父类没有必要创建实例。也就是我们要将Animal定义为抽象类。用abstract关键字来修饰一个类时，这个类叫做抽象类
+
+```java
+public abstract class Animal {
+    abstract void eat();
+}
+```
+
+上面的类上有一个 `abstract` 修饰符修饰的类是一个抽象类，用abstract来修饰一个方法时，该方法叫做抽象方法。
+
+> [info] 抽象方法：只有方法的声明，没有方法的实现。以分号结束
+>
+> 抽象类可以被继承、不能被实例化
+>
+> 抽象类可以定义构造器
+
+### 6.3.4 抽象类vs一般类
+
+* 相同点
+  + 抽象类和一般类都是用来描述事物的，都在内部定了成员。
+* 不同点
+  + 一般类有足够的信息描述事物；抽象类描述事物的信息有可能不足。
+  + 一般类中不能定义抽象方法，只能定非抽象方法。抽象类中可定义抽象方法，同时也可以定义非抽象方法。
+  + 一般类可以被实例化。抽象类不可以被实例化。
+
+> [warn] **注意** 不能用abstract修饰属性、私有方法、构造器、静态方法、final的方法
