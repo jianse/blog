@@ -5,6 +5,7 @@ draft: false
 categories: javase
 categories_weight: 5
 toc: true
+tags: ["java","类","对象"]
 ---
 
 # 第五章 对象和类

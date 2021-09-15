@@ -5,6 +5,7 @@ draft: false
 categories: javase
 categories_weight: 11
 toc: true
+tags: ["java","集合"]
 ---
 
 # 第十一章 集合框架

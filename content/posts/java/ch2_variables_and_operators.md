@@ -5,6 +5,7 @@ draft: false
 categories: javase
 categories_weight: 2
 toc: true
+tags: ["java","变量","运算符","优先级"]
 ---
 
 # 第二章 变量与运算符

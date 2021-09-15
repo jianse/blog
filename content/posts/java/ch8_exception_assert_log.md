@@ -5,6 +5,7 @@ draft: false
 categories: javase
 categories_weight: 8
 toc: true
+tags: ["java","异常"]
 ---
 
 # 第八章 异常、断言和日志

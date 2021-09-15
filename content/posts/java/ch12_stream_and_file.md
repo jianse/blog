@@ -5,6 +5,7 @@ draft: false
 categories: javase
 categories_weight: 12
 toc: true
+tags: ["java","流","文件"]
 ---
 
 # 第十二章 流与文件

@@ -5,6 +5,7 @@ draft: false
 categories: javase
 categories_weight: 7
 toc: true
+tags: ["java","接口"]
 ---
 
 # 第七章 接口与内部类
