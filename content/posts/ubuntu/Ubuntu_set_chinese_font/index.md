@@ -85,7 +85,7 @@ tags: ["linux", "ubuntu"]
 
 ### 下载ibus-tweaker
 
-[htpps://extensions.gnome.org](htpps://extensions.gnome.org) 搜索ibus-tweaker选择相应gnome版本下载
+[https://extensions.gnome.org](https://extensions.gnome.org) 搜索ibus-tweaker选择相应gnome版本下载
 
 ### 安装ibus-tweaker
 
