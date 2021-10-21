@@ -12,7 +12,9 @@ tags: ["linux", "ubuntu"]
 
 ## 问题
 
-发现Ubuntu操作系统Gnome桌面中文字体中有一些字显示很奇怪，表现是一些字显示的要比其他的窄。比如复杂的 `复`
+发现Ubuntu操作系统Gnome桌面中文字体中有一些字显示很奇怪，表现是一些字显示的要比其他的窄。比如复杂的 `复`,如图
+
+![示例](example.png)
 
 ## 查证
 
@@ -28,7 +30,7 @@ tags: ["linux", "ubuntu"]
 
 修改 `/etc/fonts/conf.d/64-language-selector-prefer.conf`
 
-将所有sc字体提前
+将所有带`sc`后缀的字体提前，`sc`表示的是`simplified chinese`简体中文的意思
 
 ```xml
 <?xml version="1.0"?>
@@ -37,7 +39,7 @@ tags: ["linux", "ubuntu"]
     <alias>
         <family>sans-serif</family>
         <prefer>
-              <!-- 将noto sans cjk sc 提前 -->
+            <!-- 将noto sans cjk sc 提前 -->
             <family>Noto Sans CJK SC</family>
             <family>Noto Sans CJK JP</family>
             <family>Noto Sans CJK KR</family>
@@ -49,7 +51,7 @@ tags: ["linux", "ubuntu"]
     <alias>
         <family>serif</family>
         <prefer>
-              <!-- 将noto serif cjk sc 提前 -->
+            <!-- 将noto serif cjk sc 提前 -->
             <family>Noto Serif CJK SC</family>
             <family>Noto Serif CJK JP</family>
             <family>Noto Serif CJK KR</family>
