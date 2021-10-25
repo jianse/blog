@@ -1,7 +1,7 @@
 ---
 title: "安装Ubuntu"
 date: 2021-10-21T10:21:13+08:00
-draft: true
+draft: false
 categories: ubuntu
 categories_weight: 1
 toc: true
@@ -119,6 +119,10 @@ sudo apt update
 sudo apt upgrade
 ```
 
+重启以使更新生效。
+
 ## 小结
 
 以上就是安装Ubuntu 20.04.3 lts 的简单步骤，以及进行简单设置的步骤，接下来我将一步一步美化，修改它，使它更加符合自己的习惯，更易用。
+
+敬请期待！
