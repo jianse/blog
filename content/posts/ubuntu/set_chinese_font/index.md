@@ -1,14 +1,14 @@
 ---
-title: "Ubuntu中文字体设置"
+title: "中文字体设置"
 date: 2021-09-23T20:19:59+08:00
 draft: false
 categories: ubuntu
-categories_weight: 1
+categories_weight: 3
 toc: true
 tags: ["linux", "ubuntu"]
 ---
 
-# Ubuntu中文字体设置
+# 中文字体设置
 
 ## 问题
 
