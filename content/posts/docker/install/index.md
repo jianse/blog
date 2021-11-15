@@ -1,10 +1,10 @@
 ---
 title: "安装docker"
 date: 2021-10-24T23:03:42+08:00
-draft: true
+draft: false
 toc: true
 categories: 'docker'
-categories_weight: 1
+categories_weight: 2
 tags: ["docker", "container"]
 ---
 
@@ -30,7 +30,7 @@ Ubuntu 官方的版本库中并不一定是 Docker 最新的安装包，为了�
 文章编写时最新的docker-ce版本是 `20.10.9`
 
 > [info]
-> 但是官网国内的访问速度真的无法让人满意，所以使用ustc docker-ce源进行加速
+> 官网国内的访问速度真的是一言难尽，所以这里使用ustc docker-ce源进行加速
 
 ### 添加docker软件源
 
@@ -104,8 +104,6 @@ Server: Docker Engine - Community
 sudo systemctl status docker
 ```
 
-出现类似于下面的输出就表示docker服务启动成功了
-
 ```text
 ● docker.service - Docker Application Container Engine
      Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
@@ -119,3 +117,5 @@ TriggeredBy: ● docker.socket
              └─3416 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 
 ```
+
+出现类似于上面的输出就表示docker服务启动成功了
