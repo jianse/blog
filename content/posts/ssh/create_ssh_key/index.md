@@ -1,7 +1,7 @@
 ---
 title: "创建ssh密钥对"
 date: 2021-10-25T11:01:32+08:00
-draft: true
+draft: false
 toc: true
 categories: ssh
 categories_weight: 1
