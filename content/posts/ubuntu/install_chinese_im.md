@@ -13,6 +13,11 @@ tags: ["ubuntu","linux","输入法"]
 
 * Ubuntu 20.04.3 lts
 
+> [info]
+> Ubuntu 21.10 将输入法设置移动到了`Settings`->`Keyboard`下，请注意您使用的Ubuntu版本。
+>
+> 该教程只适用于上面环境所指出的版本。
+
 ## 安装
 
 ### 安装缺失的语言
